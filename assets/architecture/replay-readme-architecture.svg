@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1260" viewBox="0 0 1440 1260" role="img" aria-labelledby="title desc">
+<title id="title">RaceTime Replay architecture overview</title><desc id="desc">Exported video and watch data enter local OpenCV measurements and validated parsers, then offset alignment produces candidate events. A bounded LangGraph investigator retrieves and verifies evidence. Streamlit serves synchronized browser replay and human review. Optional Gemini or Nebius receives redacted text only; optional Braintrust exports restricted metadata for synthetic demos only. Files are local and graph checkpoints are in memory.</desc>
+<rect width="1440" height="1260" rx="24" fill="#f5f3eb"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#6a8790"/></marker></defs>
+<text x="40" y="48" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#187b70">RACETIME REPLAY  /  IMPLEMENTED PYTHON WORKFLOW</text>
+<text x="40" y="101" font-family="DejaVu Sans, sans-serif" font-size="37" font-weight="700" fill="#203646">From separate recordings to shared evidence</text>
+<text x="40" y="143" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="400" fill="#526976">Core analysis runs on the app host. The bundled demo works without an API key.</text>
+<rect x="40" y="190" width="400" height="215" rx="18" fill="#ffffff" stroke="none"/>
+<rect x="520" y="190" width="400" height="215" rx="18" fill="#ffffff" stroke="none"/>
+<rect x="1000" y="190" width="400" height="215" rx="18" fill="#ffffff" stroke="none"/>
+<circle cx="80" cy="224" r="18" fill="#187b70" stroke="none" stroke-width="2"/>
+<text x="73" y="232" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" fill="#ffffff">1</text>
+<text x="112" y="232" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="700" fill="#203646">Exported files</text>
+<text x="64" y="280" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#203646">Camera video  ·  MP4 / MOV</text>
+<text x="64" y="318" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#396f9a">Watch  ·  CSV / GPX / XML</text>
+<text x="64" y="354" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Apple Health XML supported</text>
+<text x="64" y="384" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">File import; no device API</text>
+<circle cx="560" cy="224" r="18" fill="#187b70" stroke="none" stroke-width="2"/>
+<text x="553" y="232" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" fill="#ffffff">2</text>
+<text x="592" y="232" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="700" fill="#203646">Local measurements</text>
+<text x="544" y="280" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">OpenCV: flow, frames, quality</text>
+<text x="544" y="318" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#396f9a">Parsers: time, units, samples</text>
+<text x="544" y="354" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Speed · heart rate · route</text>
+<text x="544" y="384" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Keep missing values explicit</text>
+<circle cx="1040" cy="224" r="18" fill="#187b70" stroke="none" stroke-width="2"/>
+<text x="1033" y="232" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" fill="#ffffff">3</text>
+<text x="1072" y="232" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="700" fill="#203646">Align + detect</text>
+<text x="1024" y="280" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Manual offset + time tolerance</text>
+<text x="1024" y="318" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#396f9a">Stops · repeats · disagreements</text>
+<text x="1024" y="354" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Candidate events + coverage</text>
+<text x="1024" y="384" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Evidence frames + timestamps</text>
+<path d="M458 300 H500" stroke="#6a8790" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M938 300 H980" stroke="#6a8790" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M1200 405 V437 H480 V468" stroke="#6a8790" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="40" y="480" width="880" height="360" rx="18" fill="#e4edf3" stroke="none"/>
+<text x="65" y="522" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="700" fill="#396f9a">BOUNDED LANGGRAPH INVESTIGATOR</text>
+<rect x="65" y="550" width="255" height="140" rx="18" fill="#ffffff" stroke="none"/>
+<text x="80" y="587" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" fill="#396f9a">Guard + route</text>
+<text x="80" y="629" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" fill="#203646">Input policy checks</text>
+<text x="80" y="663" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" fill="#526976">Choose investigation</text>
+<rect x="350" y="550" width="255" height="140" rx="18" fill="#ffffff" stroke="none"/>
+<text x="365" y="587" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" fill="#396f9a">Retrieve + inspect</text>
+<text x="365" y="629" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" fill="#203646">Events and knowledge</text>
+<text x="365" y="663" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" fill="#526976">Local evidence tools</text>
+<rect x="635" y="550" width="255" height="140" rx="18" fill="#ffffff" stroke="none"/>
+<text x="650" y="587" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" fill="#396f9a">Answer + verify</text>
+<text x="650" y="629" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" fill="#203646">Citations and schema</text>
+<text x="650" y="663" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" fill="#526976">Return checked answer</text>
+<path d="M323 620 H342" stroke="#6a8790" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M608 620 H627" stroke="#6a8790" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="65" y="733" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#396f9a">Local TF-IDF retrieval; optional MiniLM hybrid search</text>
+<text x="65" y="770" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#526976">Optional NeMo input action + Guardrails AI schema checks</text>
+<rect x="65" y="790" width="825" height="32" rx="8" fill="#ffffff" stroke="none"/>
+<text x="80" y="813" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="700" fill="#187b70">Blocked inputs stop before tools or models. Local evidence remains primary.</text>
+<rect x="1000" y="480" width="400" height="360" rx="18" fill="#fbefd9" stroke="none"/>
+<text x="1025" y="522" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" fill="#a66b27">OPTIONAL TEXT DRAFT</text>
+<text x="1025" y="570" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" fill="#203646">Gemini / Nebius Token Factory</text>
+<text x="1025" y="616" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Opt-in, redacted text evidence</text>
+<text x="1025" y="652" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">No video, frames or raw GPS</text>
+<text x="1025" y="697" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" fill="#a66b27">Draft returns for validation</text>
+<text x="1025" y="733" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Failure keeps local evidence</text>
+<text x="1025" y="779" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Dashed arrows: opt-in calls</text>
+<text x="1025" y="810" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Credentials required</text>
+<path d="M923 596 H996" stroke="#6a8790" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" stroke-dasharray="8 7"/>
+<path d="M996 665 H923" stroke="#6a8790" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" stroke-dasharray="8 7"/>
+<rect x="40" y="910" width="400" height="220" rx="18" fill="#ffffff" stroke="none"/>
+<rect x="520" y="910" width="400" height="220" rx="18" fill="#ffffff" stroke="none"/>
+<rect x="1000" y="910" width="400" height="220" rx="18" fill="#ffffff" stroke="none"/>
+<path d="M240 840 V901" stroke="#6a8790" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M720 840 V901" stroke="#6a8790" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="64" y="951" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="700" fill="#187b70">Replay + human review</text>
+<text x="64" y="992" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Streamlit + browser video clock</text>
+<text x="64" y="1027" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Charts, route and cited answers</text>
+<text x="64" y="1062" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#203646">Confirm or reject event candidates</text>
+<text x="64" y="1103" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" fill="#526976">Review does not certify a cause.</text>
+<text x="544" y="951" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="700" fill="#396f9a">Local session state</text>
+<text x="544" y="992" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Files, index and review JSON</text>
+<text x="544" y="1027" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Graph checkpoints: in memory</text>
+<text x="544" y="1062" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#203646">Delete control + retention cleanup</text>
+<text x="544" y="1103" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" fill="#526976">Host storage under .runtime/</text>
+<text x="1024" y="951" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="700" fill="#396f9a">Evaluation + tracing</text>
+<text x="1024" y="992" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#203646">Local timings and synthetic evals</text>
+<text x="1024" y="1027" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Optional Braintrust metadata</text>
+<text x="1024" y="1062" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" fill="#a66b27">Synthetic demo sessions only</text>
+<text x="1024" y="1103" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" fill="#526976">No upload-session cloud tracing</text>
+<text x="40" y="1180" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#187b70">FUTURE EXTENSIONS</text>
+<text x="40" y="1219" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#526976">Visual scene summaries + terrain understanding + watch-informed optimization need further validation.</text>
+</svg>

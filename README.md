@@ -4,7 +4,9 @@
 
 [Product story](docs/PRODUCT.md) · [Week-by-week evidence](docs/WEEKLY_MAPPING.md) · [Developer guide](docs/DEVELOPER_GUIDE.md) · [Data guide](docs/DATA_GUIDE.md) · [Safety](docs/SAFETY.md) · [Nebius integration](docs/NEBIUS.md) · [Braintrust observability](docs/OBSERVABILITY.md)
 
-![Video and workout data aligned into timestamped evidence](assets/replay-workflow.svg)
+![RaceTime Replay introduction: capture camera and watch exports, align the evidence, and review candidate moments](assets/architecture/replay-readme-intro.png)
+
+[View the full-size intro diagram](assets/architecture/replay-readme-intro.svg)
 
 ## Who this is for
 
@@ -36,6 +38,14 @@ The bundled 90-second demo runs without an API key. It is a generated motion fix
 - A bounded LangGraph investigator with retrieval, tool fallbacks, reference checks and local node timings.
 - Optional MiniLM hybrid retrieval and optional Gemini or Nebius drafts from redacted aggregate evidence.
 - Reproducible evaluation, a real small LoRA experiment and executable guardrail checks.
+
+## Architecture at a glance
+
+![RaceTime Replay architecture: local OpenCV and workout parsing, alignment, bounded LangGraph investigation, synchronized review, and optional cloud services](assets/architecture/replay-readme-architecture.png)
+
+[View the full-size architecture](assets/architecture/replay-readme-architecture.svg) · [Architecture details and diagram source](docs/ARCHITECTURE.md)
+
+The local path turns exported recordings into measurements, candidate events and timestamped evidence. The browser keeps video, charts and route display on one clock; athletes can review events directly or ask the bounded investigator to explain the available evidence. Optional Gemini or Nebius drafts receive redacted text evidence, while optional Braintrust tracing is restricted to synthetic demo metadata.
 
 ## What is intentionally future work
 
