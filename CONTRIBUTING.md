@@ -1,0 +1,3 @@
+# Contributing
+
+Read docs/DEVELOPER_GUIDE.md and docs/DATA_GUIDE.md before changing a boundary. Use Python 3.12, type public functions, explain units and missing-data behavior, and keep presentation separate from analysis. Format with Ruff and run the behavior tests. Add a failing regression case before repairing timing, privacy or evidence bugs. Never commit `.env`, raw Health exports, personal routes, video uploads or model caches. Keep the synthetic fixture generator deterministic. Describe measured behavior and limitations in pull requests; do not claim tests or field validation that were not run.

@@ -1,0 +1,539 @@
+{
+  "model": "prajjwal1/bert-tiny",
+  "base_revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
+  "seed": 42,
+  "labels": [
+    "stops",
+    "signals",
+    "summary",
+    "knowledge"
+  ],
+  "train_count": 144,
+  "test_count": 40,
+  "comparison": "Identical frozen pretrained encoder and classifier initialization; classifier trained in both arms. LoRA arm additionally trains rank-8 query/value adapters. Same data, batches, epochs and optimizer learning rate.",
+  "limitations": [
+    "Small authored synthetic dataset; no independent human review.",
+    "One seed, one split; no significance or real-user generalization claim.",
+    "Encoder classifier experiment, not a generative LLM or video model.",
+    "No deployment decision was made using training accuracy."
+  ],
+  "results": {
+    "frozen_encoder": {
+      "accuracy": 0.525,
+      "macro_f1": 0.5218137254901961,
+      "precision_by_label": {
+        "stops": 0.8,
+        "signals": 0.5714285714285714,
+        "summary": 0.5,
+        "knowledge": 0.42857142857142855
+      },
+      "recall_by_label": {
+        "stops": 0.4,
+        "signals": 0.4,
+        "summary": 0.7,
+        "knowledge": 0.6
+      },
+      "f1_by_label": {
+        "stops": 0.5333333333333333,
+        "signals": 0.47058823529411764,
+        "summary": 0.5833333333333334,
+        "knowledge": 0.5
+      },
+      "confusion_matrix": [
+        [
+          4,
+          0,
+          5,
+          1
+        ],
+        [
+          0,
+          4,
+          1,
+          5
+        ],
+        [
+          1,
+          0,
+          7,
+          2
+        ],
+        [
+          0,
+          3,
+          1,
+          6
+        ]
+      ],
+      "trainable_parameters": 516,
+      "train_seconds": 0.509,
+      "initial_loss": 1.3940361738204956,
+      "final_loss": 1.1911864280700684,
+      "steps": 96
+    },
+    "lora": {
+      "accuracy": 0.6,
+      "macro_f1": 0.5959360332761867,
+      "precision_by_label": {
+        "stops": 0.7142857142857143,
+        "signals": 1.0,
+        "summary": 0.5384615384615384,
+        "knowledge": 0.5
+      },
+      "recall_by_label": {
+        "stops": 0.5,
+        "signals": 0.4,
+        "summary": 0.7,
+        "knowledge": 0.8
+      },
+      "f1_by_label": {
+        "stops": 0.5882352941176471,
+        "signals": 0.5714285714285714,
+        "summary": 0.6086956521739131,
+        "knowledge": 0.6153846153846154
+      },
+      "confusion_matrix": [
+        [
+          5,
+          0,
+          5,
+          0
+        ],
+        [
+          1,
+          4,
+          0,
+          5
+        ],
+        [
+          0,
+          0,
+          7,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          8
+        ]
+      ],
+      "trainable_parameters": 8708,
+      "train_seconds": 0.934,
+      "initial_loss": 1.4237871170043945,
+      "final_loss": 0.03042854182422161,
+      "steps": 96
+    }
+  },
+  "predictions": {
+    "frozen_encoder": [
+      {
+        "text": "Locate intervals where I was not moving.",
+        "expected": "stops",
+        "predicted": "summary"
+      },
+      {
+        "text": "Find the time spent standing still.",
+        "expected": "stops",
+        "predicted": "stops"
+      },
+      {
+        "text": "Which pauses lasted longest?",
+        "expected": "stops",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Show me when I stopped to wait.",
+        "expected": "stops",
+        "predicted": "stops"
+      },
+      {
+        "text": "Add up the stationary sections.",
+        "expected": "stops",
+        "predicted": "summary"
+      },
+      {
+        "text": "Review the candidate halt at twenty seconds.",
+        "expected": "stops",
+        "predicted": "summary"
+      },
+      {
+        "text": "Find places where my progress stopped.",
+        "expected": "stops",
+        "predicted": "stops"
+      },
+      {
+        "text": "Was there a pause in the footage?",
+        "expected": "stops",
+        "predicted": "stops"
+      },
+      {
+        "text": "Show stop timestamps.",
+        "expected": "stops",
+        "predicted": "summary"
+      },
+      {
+        "text": "Give me a breakdown of waiting.",
+        "expected": "stops",
+        "predicted": "summary"
+      },
+      {
+        "text": "The watch and camera tell different stories.",
+        "expected": "signals",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Are the clocks aligned?",
+        "expected": "signals",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Which readings are absent?",
+        "expected": "signals",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Does this file contain repeated frames?",
+        "expected": "signals",
+        "predicted": "signals"
+      },
+      {
+        "text": "Could a GPS dropout explain the disagreement?",
+        "expected": "signals",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Show intervals with conflicting sensors.",
+        "expected": "signals",
+        "predicted": "signals"
+      },
+      {
+        "text": "Check for clock offset.",
+        "expected": "signals",
+        "predicted": "signals"
+      },
+      {
+        "text": "Where does the speed stream disappear?",
+        "expected": "signals",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Investigate the frozen recording.",
+        "expected": "signals",
+        "predicted": "summary"
+      },
+      {
+        "text": "Review gaps in watch measurements.",
+        "expected": "signals",
+        "predicted": "signals"
+      },
+      {
+        "text": "Catch me up on this recording.",
+        "expected": "summary",
+        "predicted": "stops"
+      },
+      {
+        "text": "What are the key observations?",
+        "expected": "summary",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Brief me on the workout timeline.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "Tell me the recorded sequence.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "Give me a concise session report.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "What deserves a closer look?",
+        "expected": "summary",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Describe the measured events.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "Make a short overview of the activity.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "Recap the run for me.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "Summarize all observations.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "Define optical flow.",
+        "expected": "knowledge",
+        "predicted": "signals"
+      },
+      {
+        "text": "Explain the stop detection algorithm.",
+        "expected": "knowledge",
+        "predicted": "signals"
+      },
+      {
+        "text": "What information does Apple Health export?",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "How are private locations protected?",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Why do empty samples remain blank?",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "What are the limitations of motion analysis?",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Describe the planned vision extension.",
+        "expected": "knowledge",
+        "predicted": "summary"
+      },
+      {
+        "text": "How does the app compare timestamps?",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "What is a nearest-sample tolerance?",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Explain what this system cannot conclude.",
+        "expected": "knowledge",
+        "predicted": "signals"
+      }
+    ],
+    "lora": [
+      {
+        "text": "Locate intervals where I was not moving.",
+        "expected": "stops",
+        "predicted": "stops"
+      },
+      {
+        "text": "Find the time spent standing still.",
+        "expected": "stops",
+        "predicted": "summary"
+      },
+      {
+        "text": "Which pauses lasted longest?",
+        "expected": "stops",
+        "predicted": "stops"
+      },
+      {
+        "text": "Show me when I stopped to wait.",
+        "expected": "stops",
+        "predicted": "stops"
+      },
+      {
+        "text": "Add up the stationary sections.",
+        "expected": "stops",
+        "predicted": "summary"
+      },
+      {
+        "text": "Review the candidate halt at twenty seconds.",
+        "expected": "stops",
+        "predicted": "summary"
+      },
+      {
+        "text": "Find places where my progress stopped.",
+        "expected": "stops",
+        "predicted": "stops"
+      },
+      {
+        "text": "Was there a pause in the footage?",
+        "expected": "stops",
+        "predicted": "summary"
+      },
+      {
+        "text": "Show stop timestamps.",
+        "expected": "stops",
+        "predicted": "stops"
+      },
+      {
+        "text": "Give me a breakdown of waiting.",
+        "expected": "stops",
+        "predicted": "summary"
+      },
+      {
+        "text": "The watch and camera tell different stories.",
+        "expected": "signals",
+        "predicted": "signals"
+      },
+      {
+        "text": "Are the clocks aligned?",
+        "expected": "signals",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Which readings are absent?",
+        "expected": "signals",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Does this file contain repeated frames?",
+        "expected": "signals",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Could a GPS dropout explain the disagreement?",
+        "expected": "signals",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Show intervals with conflicting sensors.",
+        "expected": "signals",
+        "predicted": "stops"
+      },
+      {
+        "text": "Check for clock offset.",
+        "expected": "signals",
+        "predicted": "signals"
+      },
+      {
+        "text": "Where does the speed stream disappear?",
+        "expected": "signals",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Investigate the frozen recording.",
+        "expected": "signals",
+        "predicted": "signals"
+      },
+      {
+        "text": "Review gaps in watch measurements.",
+        "expected": "signals",
+        "predicted": "signals"
+      },
+      {
+        "text": "Catch me up on this recording.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "What are the key observations?",
+        "expected": "summary",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Brief me on the workout timeline.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "Tell me the recorded sequence.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "Give me a concise session report.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "What deserves a closer look?",
+        "expected": "summary",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Describe the measured events.",
+        "expected": "summary",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Make a short overview of the activity.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "Recap the run for me.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "Summarize all observations.",
+        "expected": "summary",
+        "predicted": "summary"
+      },
+      {
+        "text": "Define optical flow.",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Explain the stop detection algorithm.",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "What information does Apple Health export?",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "How are private locations protected?",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Why do empty samples remain blank?",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "What are the limitations of motion analysis?",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "Describe the planned vision extension.",
+        "expected": "knowledge",
+        "predicted": "stops"
+      },
+      {
+        "text": "How does the app compare timestamps?",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      },
+      {
+        "text": "What is a nearest-sample tolerance?",
+        "expected": "knowledge",
+        "predicted": "summary"
+      },
+      {
+        "text": "Explain what this system cannot conclude.",
+        "expected": "knowledge",
+        "predicted": "knowledge"
+      }
+    ]
+  },
+  "dataset_sha256": "8729e5a43e2061f2bbdc40f6542565438256beefbfe6ac0ccf8d80bcd80ec55d",
+  "merged_model_smoke_test": {
+    "input": "Show the pauses in this run",
+    "prediction": "stops"
+  }
+}

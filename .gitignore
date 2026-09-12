@@ -1,0 +1,20 @@
+.env
+.venv/
+.runtime/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+uploads/
+training/cache/
+training/checkpoints/
+training/merged/
+*.safetensors
+*.bin
+*.gguf
+.DS_Store
+
+# Personal artwork and the illustrated local overview are not public assets.
+assets/siva-running.jpg
+assets/replay-story.png
+docs/RaceTime-Replay-Overview.docx

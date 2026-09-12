@@ -1,0 +1,56 @@
+{
+  "semantic_retrieval": {
+    "mode": "Hybrid MiniLM dense + TF-IDF",
+    "executed": true,
+    "hits": [
+      {
+        "id": "K05",
+        "text": "Camera and speed disagreement is unresolved evidence. A moving camera with near-zero recorded speed may indicate GPS error, clock offset, camera handling, or other movement. No single cause is established.",
+        "source": "replay/analysis.py",
+        "score": 0.3315
+      },
+      {
+        "id": "K02",
+        "text": "A stop candidate combines recorded speed below 0.4 m/s with low video motion for at least two seconds. A stationary camera alone cannot prove the runner stopped. Review the clip.",
+        "source": "replay/analysis.py",
+        "score": 0.2351
+      },
+      {
+        "id": "K03",
+        "text": "Video time zero corresponds to workout elapsed offset_s. Match a known event in both recordings. Check another event near the end for drift. Missing observations remain missing outside the sample tolerance.",
+        "source": "docs/DATA_GUIDE.md",
+        "score": 0.1813
+      },
+      {
+        "id": "K06",
+        "text": "Future visual scene summaries require a vision model and manually reviewed clips. Current OpenCV measurements do not recognize rocks, stairs, aid stations, injuries, or athlete identity.",
+        "source": "docs/ROADMAP.md",
+        "score": 0.1592
+      }
+    ]
+  },
+  "cloud_synthesis": {
+    "cloud_draft": "A stop candidate from 20.5 to 30.0 seconds with a duration of 9.5 seconds and a repeated frame from 21.5 to 30.0 seconds with a duration of 8.5 seconds are noted as measured candidates requiring human review. A sensor conflict was observed from 45.0 to 50.0 seconds with a duration of 5.0 seconds, and another repeated frame occurred from 65.5 to 69.0 seconds with a duration of 3.5 seconds. Lastly, a missing speed event was recorded from 76.5 to 79.0 seconds with a duration of 2.5 seconds.",
+    "cloud_usage": {
+      "promptTokenCount": 372,
+      "candidatesTokenCount": 207,
+      "totalTokenCount": 2204,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 372
+        }
+      ],
+      "thoughtsTokenCount": 1625,
+      "serviceTier": "standard"
+    },
+    "cloud_status": "Draft for review; evidence above remains authoritative.",
+    "latency_ms": 6293.44
+  },
+  "langsmith": {
+    "status": "blocked_on_verified_attempt",
+    "reason": "HTTP 429: Monthly unique traces usage limit exceeded.",
+    "local_alternative": "reports/evaluation.json contains actual local node timings and outcomes.",
+    "uploaded_trace_claim": false
+  }
+}

@@ -1,0 +1,5 @@
+torch>=2.6,<3
+transformers>=4.50,<6
+peft>=0.15,<1
+scikit-learn>=1.5,<2
+numpy>=1.26,<3

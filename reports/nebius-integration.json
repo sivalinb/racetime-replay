@@ -1,0 +1,5 @@
+{
+  "provider": "nebius",
+  "status": "not_executed",
+  "reason": "API key and model ID are required."
+}

@@ -1,0 +1,8 @@
+.env
+.git
+.venv
+.runtime
+__pycache__
+training/cache
+training/merged
+training/checkpoints

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">RaceTime Replay workflow</title>
+  <desc id="desc">Runner video and workout measurements are aligned on one timeline, then reviewed with timestamped evidence.</desc>
+  <rect width="1200" height="360" rx="24" fill="#f7f6f0"/>
+  <g font-family="system-ui, sans-serif" fill="#183c37">
+    <text x="52" y="58" font-size="27" font-weight="700">RaceTime Replay</text>
+    <text x="52" y="92" font-size="18">Connect the recording. Inspect the moment. Follow the evidence.</text>
+    <rect x="52" y="128" width="310" height="168" rx="16" fill="#e4ece8"/>
+    <rect x="445" y="128" width="310" height="168" rx="16" fill="#e4ece8"/>
+    <rect x="838" y="128" width="310" height="168" rx="16" fill="#e4ece8"/>
+    <text x="76" y="166" font-size="21" font-weight="650">Video and workout</text>
+    <text x="76" y="202" font-size="17">Exported camera footage</text>
+    <text x="76" y="230" font-size="17">Speed and heart rate</text>
+    <text x="76" y="272" font-size="14">Python and OpenCV</text>
+    <text x="469" y="166" font-size="21" font-weight="650">One shared timeline</text>
+    <path d="M470 224 H500 L514 194 L531 245 L548 210 H573 L590 229 L610 202 L628 215 H728" fill="none" stroke="#327b6c" stroke-width="4"/>
+    <text x="469" y="272" font-size="14">Explicit alignment and missing data</text>
+    <text x="862" y="166" font-size="21" font-weight="650">Evidence to review</text>
+    <text x="862" y="202" font-size="17">Candidate stops and conflicts</text>
+    <text x="862" y="230" font-size="17">Cited observations and clips</text>
+    <text x="862" y="272" font-size="14">Human interpretation</text>
+  </g>
+  <g fill="none" stroke="#327b6c" stroke-width="3"><path d="M380 213 H425 M414 203 L425 213 L414 223"/><path d="M773 213 H818 M807 203 L818 213 L807 223"/></g>
+</svg>

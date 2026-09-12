@@ -1,0 +1,927 @@
+{
+  "provenance": "Author-created synthetic routing requests. Test wording authored separately from training templates. No external race data.",
+  "train": [
+    {
+      "text": "Find stops in this run.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Find stops in the morning session.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Find stops in the selected recording.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Find stops in my workout.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Find stops in the trail video.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Find stops in this interval.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Show pauses in this run.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Show pauses in the morning session.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Show pauses in the selected recording.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Show pauses in my workout.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Show pauses in the trail video.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Show pauses in this interval.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "How long was I stationary during this run?",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "How long was I stationary during the morning session?",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "How long was I stationary during the selected recording?",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "How long was I stationary during my workout?",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "How long was I stationary during the trail video?",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "How long was I stationary during this interval?",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Find waiting time in this run.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Find waiting time in the morning session.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Find waiting time in the selected recording.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Find waiting time in my workout.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Find waiting time in the trail video.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Find waiting time in this interval.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "List stopped intervals for this run.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "List stopped intervals for the morning session.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "List stopped intervals for the selected recording.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "List stopped intervals for my workout.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "List stopped intervals for the trail video.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "List stopped intervals for this interval.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Inspect the stop candidates in this run.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Inspect the stop candidates in the morning session.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Inspect the stop candidates in the selected recording.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Inspect the stop candidates in my workout.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Inspect the stop candidates in the trail video.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Inspect the stop candidates in this interval.",
+      "label": "stops",
+      "split": "train"
+    },
+    {
+      "text": "Find missing samples in this run.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Find missing samples in the morning session.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Find missing samples in the selected recording.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Find missing samples in my workout.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Find missing samples in the trail video.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Find missing samples in this interval.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Do video and GPS disagree in this run?",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Do video and GPS disagree in the morning session?",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Do video and GPS disagree in the selected recording?",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Do video and GPS disagree in my workout?",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Do video and GPS disagree in the trail video?",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Do video and GPS disagree in this interval?",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Check synchronization in this run.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Check synchronization in the morning session.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Check synchronization in the selected recording.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Check synchronization in my workout.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Check synchronization in the trail video.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Check synchronization in this interval.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Inspect sensor conflicts in this run.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Inspect sensor conflicts in the morning session.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Inspect sensor conflicts in the selected recording.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Inspect sensor conflicts in my workout.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Inspect sensor conflicts in the trail video.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Inspect sensor conflicts in this interval.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Look for frozen frames in this run.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Look for frozen frames in the morning session.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Look for frozen frames in the selected recording.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Look for frozen frames in my workout.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Look for frozen frames in the trail video.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Look for frozen frames in this interval.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Identify data gaps in this run.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Identify data gaps in the morning session.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Identify data gaps in the selected recording.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Identify data gaps in my workout.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Identify data gaps in the trail video.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Identify data gaps in this interval.",
+      "label": "signals",
+      "split": "train"
+    },
+    {
+      "text": "Summarize this run.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Summarize the morning session.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Summarize the selected recording.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Summarize my workout.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Summarize the trail video.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Summarize this interval.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Give me a recap of this run.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Give me a recap of the morning session.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Give me a recap of the selected recording.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Give me a recap of my workout.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Give me a recap of the trail video.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Give me a recap of this interval.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "What happened during this run?",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "What happened during the morning session?",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "What happened during the selected recording?",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "What happened during my workout?",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "What happened during the trail video?",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "What happened during this interval?",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "List the main events of this run.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "List the main events of the morning session.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "List the main events of the selected recording.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "List the main events of my workout.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "List the main events of the trail video.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "List the main events of this interval.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Show notable moments from this run.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Show notable moments from the morning session.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Show notable moments from the selected recording.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Show notable moments from my workout.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Show notable moments from the trail video.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Show notable moments from this interval.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Give an overview of this run.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Give an overview of the morning session.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Give an overview of the selected recording.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Give an overview of my workout.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Give an overview of the trail video.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Give an overview of this interval.",
+      "label": "summary",
+      "split": "train"
+    },
+    {
+      "text": "Explain how optical flow works for this run.",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "Explain how optical flow works for the morning session.",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "Explain how optical flow works for the selected recording.",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "Explain how optical flow works for my workout.",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "Explain how optical flow works for the trail video.",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "Explain how optical flow works for this interval.",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "What does sample tolerance mean for this run?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "What does sample tolerance mean for the morning session?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "What does sample tolerance mean for the selected recording?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "What does sample tolerance mean for my workout?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "What does sample tolerance mean for the trail video?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "What does sample tolerance mean for this interval?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "How does privacy work for this run?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "How does privacy work for the morning session?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "How does privacy work for the selected recording?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "How does privacy work for my workout?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "How does privacy work for the trail video?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "How does privacy work for this interval?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "Explain workout export for this run.",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "Explain workout export for the morning session.",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "Explain workout export for the selected recording.",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "Explain workout export for my workout.",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "Explain workout export for the trail video.",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "Explain workout export for this interval.",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "What does the future roadmap add to this run?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "What does the future roadmap add to the morning session?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "What does the future roadmap add to the selected recording?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "What does the future roadmap add to my workout?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "What does the future roadmap add to the trail video?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "What does the future roadmap add to this interval?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "How are video measurements computed for this run?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "How are video measurements computed for the morning session?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "How are video measurements computed for the selected recording?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "How are video measurements computed for my workout?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "How are video measurements computed for the trail video?",
+      "label": "knowledge",
+      "split": "train"
+    },
+    {
+      "text": "How are video measurements computed for this interval?",
+      "label": "knowledge",
+      "split": "train"
+    }
+  ],
+  "test": [
+    {
+      "text": "Locate intervals where I was not moving.",
+      "label": "stops",
+      "split": "test"
+    },
+    {
+      "text": "Find the time spent standing still.",
+      "label": "stops",
+      "split": "test"
+    },
+    {
+      "text": "Which pauses lasted longest?",
+      "label": "stops",
+      "split": "test"
+    },
+    {
+      "text": "Show me when I stopped to wait.",
+      "label": "stops",
+      "split": "test"
+    },
+    {
+      "text": "Add up the stationary sections.",
+      "label": "stops",
+      "split": "test"
+    },
+    {
+      "text": "Review the candidate halt at twenty seconds.",
+      "label": "stops",
+      "split": "test"
+    },
+    {
+      "text": "Find places where my progress stopped.",
+      "label": "stops",
+      "split": "test"
+    },
+    {
+      "text": "Was there a pause in the footage?",
+      "label": "stops",
+      "split": "test"
+    },
+    {
+      "text": "Show stop timestamps.",
+      "label": "stops",
+      "split": "test"
+    },
+    {
+      "text": "Give me a breakdown of waiting.",
+      "label": "stops",
+      "split": "test"
+    },
+    {
+      "text": "The watch and camera tell different stories.",
+      "label": "signals",
+      "split": "test"
+    },
+    {
+      "text": "Are the clocks aligned?",
+      "label": "signals",
+      "split": "test"
+    },
+    {
+      "text": "Which readings are absent?",
+      "label": "signals",
+      "split": "test"
+    },
+    {
+      "text": "Does this file contain repeated frames?",
+      "label": "signals",
+      "split": "test"
+    },
+    {
+      "text": "Could a GPS dropout explain the disagreement?",
+      "label": "signals",
+      "split": "test"
+    },
+    {
+      "text": "Show intervals with conflicting sensors.",
+      "label": "signals",
+      "split": "test"
+    },
+    {
+      "text": "Check for clock offset.",
+      "label": "signals",
+      "split": "test"
+    },
+    {
+      "text": "Where does the speed stream disappear?",
+      "label": "signals",
+      "split": "test"
+    },
+    {
+      "text": "Investigate the frozen recording.",
+      "label": "signals",
+      "split": "test"
+    },
+    {
+      "text": "Review gaps in watch measurements.",
+      "label": "signals",
+      "split": "test"
+    },
+    {
+      "text": "Catch me up on this recording.",
+      "label": "summary",
+      "split": "test"
+    },
+    {
+      "text": "What are the key observations?",
+      "label": "summary",
+      "split": "test"
+    },
+    {
+      "text": "Brief me on the workout timeline.",
+      "label": "summary",
+      "split": "test"
+    },
+    {
+      "text": "Tell me the recorded sequence.",
+      "label": "summary",
+      "split": "test"
+    },
+    {
+      "text": "Give me a concise session report.",
+      "label": "summary",
+      "split": "test"
+    },
+    {
+      "text": "What deserves a closer look?",
+      "label": "summary",
+      "split": "test"
+    },
+    {
+      "text": "Describe the measured events.",
+      "label": "summary",
+      "split": "test"
+    },
+    {
+      "text": "Make a short overview of the activity.",
+      "label": "summary",
+      "split": "test"
+    },
+    {
+      "text": "Recap the run for me.",
+      "label": "summary",
+      "split": "test"
+    },
+    {
+      "text": "Summarize all observations.",
+      "label": "summary",
+      "split": "test"
+    },
+    {
+      "text": "Define optical flow.",
+      "label": "knowledge",
+      "split": "test"
+    },
+    {
+      "text": "Explain the stop detection algorithm.",
+      "label": "knowledge",
+      "split": "test"
+    },
+    {
+      "text": "What information does Apple Health export?",
+      "label": "knowledge",
+      "split": "test"
+    },
+    {
+      "text": "How are private locations protected?",
+      "label": "knowledge",
+      "split": "test"
+    },
+    {
+      "text": "Why do empty samples remain blank?",
+      "label": "knowledge",
+      "split": "test"
+    },
+    {
+      "text": "What are the limitations of motion analysis?",
+      "label": "knowledge",
+      "split": "test"
+    },
+    {
+      "text": "Describe the planned vision extension.",
+      "label": "knowledge",
+      "split": "test"
+    },
+    {
+      "text": "How does the app compare timestamps?",
+      "label": "knowledge",
+      "split": "test"
+    },
+    {
+      "text": "What is a nearest-sample tolerance?",
+      "label": "knowledge",
+      "split": "test"
+    },
+    {
+      "text": "Explain what this system cannot conclude.",
+      "label": "knowledge",
+      "split": "test"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "provenance": "Programmatically generated texture video and workout signals. No personal data.",
+  "stop": [
+    20,
+    30
+  ],
+  "gps_conflict": [
+    45,
+    50
+  ],
+  "frozen_camera": [
+    65,
+    69
+  ],
+  "missing_speed": [
+    75,
+    81
+  ],
+  "duration_s": 90,
+  "offset_s": 0,
+  "limitation": "Tests mechanics only; not field validation or medical evidence."
+}

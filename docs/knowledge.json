@@ -1,0 +1,10 @@
+[
+ {"id":"K01","text":"Optical flow is apparent pixel motion between images caused by scene objects or camera movement. It is not calibrated running speed and does not establish fatigue or terrain semantics.","source":"https://docs.opencv.org/4.10.0/d4/dee/tutorial_optical_flow.html"},
+ {"id":"K02","text":"A stop candidate combines recorded speed below 0.4 m/s with low video motion for at least two seconds. A stationary camera alone cannot prove the runner stopped. Review the clip.","source":"replay/analysis.py"},
+ {"id":"K03","text":"Video time zero corresponds to workout elapsed offset_s. Match a known event in both recordings. Check another event near the end for drift. Missing observations remain missing outside the sample tolerance.","source":"docs/DATA_GUIDE.md"},
+ {"id":"K04","text":"HealthKit workout routes contain timestamped positions. Health data export is XML. Availability of heart rate and running speed varies by recording. A GPX file may omit heart rate.","source":"https://developer.apple.com/documentation/healthkit/reading-route-data"},
+ {"id":"K05","text":"Camera and speed disagreement is unresolved evidence. A moving camera with near-zero recorded speed may indicate GPS error, clock offset, camera handling, or other movement. No single cause is established.","source":"replay/analysis.py"},
+ {"id":"K06","text":"Future visual scene summaries require a vision model and manually reviewed clips. Current OpenCV measurements do not recognize rocks, stairs, aid stations, injuries, or athlete identity.","source":"docs/ROADMAP.md"},
+ {"id":"K07","text":"Future optimization suggestions should combine verified visual observations, recorded workout data, conditions and athlete goals, then state uncertainty and invite athlete or coach review. Do not infer medical causes from these inputs.","source":"docs/ROADMAP.md"},
+ {"id":"K08","text":"Raw video, exact coordinates and health records remain local by default. Cloud synthesis is opt-in and receives only redacted aggregate evidence. Public reports omit raw records and raw questions.","source":"docs/SAFETY.md"}
+]
