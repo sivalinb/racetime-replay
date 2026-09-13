@@ -2,7 +2,7 @@
 
 **See the run behind the numbers.** A Python application that aligns runner video with workout data so athletes can review candidate stops, source disagreements and the evidence behind an explanation.
 
-[Product story](docs/PRODUCT.md) · [Week-by-week evidence](docs/WEEKLY_MAPPING.md) · [Developer guide](docs/DEVELOPER_GUIDE.md) · [Data guide](docs/DATA_GUIDE.md) · [Safety](docs/SAFETY.md) · [Nebius integration](docs/NEBIUS.md) · [Braintrust observability](docs/OBSERVABILITY.md)
+[Product story](docs/PRODUCT.md) · [Illustrated product guide](https://docs.google.com/document/d/1ujhgZyvU_iwvN8Z4r5HdnNiKc6jDUuyxJYR3qVIiGYo/edit) · [Week-by-week evidence](docs/WEEKLY_MAPPING.md) · [Developer guide](docs/DEVELOPER_GUIDE.md) · [Data guide](docs/DATA_GUIDE.md) · [Safety](docs/SAFETY.md) · [Nebius integration](docs/NEBIUS.md) · [Braintrust observability](docs/OBSERVABILITY.md)
 
 ![RaceTime Replay introduction: capture camera and watch exports, align the evidence, and review candidate moments](assets/architecture/replay-readme-intro.png)
 
@@ -25,11 +25,7 @@ python -m pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The default **Mountain trail POV** demo uses a 60-second real hiking clip with simulated watch metrics on the same timeline. The footage shows the rocky trail ahead of the camera; its movement is unchanged. Heart rate, speed, route, and dates are invented, not measurements of the person filming. The **Diagnostic motion fixture** remains available for controlled stop and frozen-frame tests. Both run without an API key.
-
-Footage: [I Am Sorin / Pexels](https://www.pexels.com/video/point-of-view-of-a-person-hiking-a-rocky-hill-6798218/), used under the [Pexels license](https://www.pexels.com/license/). See the [demo provenance](demo/mountain-provenance.json) and [sample data guide](demo/MOUNTAIN_DEMO.md).
-
-Select **Upload my recording** for your own MP4/MOV plus CSV, GPX or Health XML. Read the data guide for timestamp conventions. The prototype limits video to 15 minutes and 150 MB. For a public demo, set `REPLAY_ALLOW_UPLOADS=false`.
+Select **Upload my recording** for your own MP4/MOV plus CSV, GPX or Health XML. Set the time offset, review aligned video and workout signals, and inspect candidate events. Read the [data guide](docs/DATA_GUIDE.md) for timestamp conventions. The prototype limits video to 15 minutes and 150 MB; core local analysis does not require an API key. In shared hosting, set `REPLAY_ALLOW_UPLOADS=false` until appropriate access and data-isolation controls are implemented.
 
 ## What works
 
@@ -49,7 +45,7 @@ Select **Upload my recording** for your own MP4/MOV plus CSV, GPX or Health XML.
 
 [View the full-size architecture](assets/architecture/replay-readme-architecture.svg) · [Architecture details and diagram source](docs/ARCHITECTURE.md)
 
-The local path turns exported recordings into measurements, candidate events and timestamped evidence. The browser keeps video, charts and route display on one clock; athletes can review events directly or ask the bounded investigator to explain the available evidence. Optional Gemini or Nebius drafts receive redacted text evidence, while optional Braintrust tracing is restricted to synthetic demo metadata.
+The local path turns exported recordings into measurements, candidate events and timestamped evidence. The browser keeps video, charts and route display on one clock; athletes can review events directly or ask the bounded investigator to explain the available evidence. Optional Gemini or Nebius drafts receive redacted text evidence, while optional Braintrust tracing is restricted to synthetic test metadata.
 
 ## What is intentionally future work
 
@@ -81,7 +77,7 @@ cp .env.example .env
 PYTHONPATH=. python scripts/check_integrations.py
 ```
 
-The semantic model downloads from Hugging Face and runs locally. Gemini and Nebius are opt-in. Nebius needs `NEBIUS_API_KEY` and a current `NEBIUS_MODEL`. A live synthetic check on September 12, 2026 succeeded with Qwen3-30B-A3B-Instruct-2507: 481 tokens and about 5.5 seconds, with existing schema and citation checks passing. This is connectivity evidence, not a quality benchmark; the draft exceeded the requested three sentences. See the [recorded result](reports/nebius-integration.json). Braintrust API readback also verified a separate synthetic Nebius investigation: eight spans and matching 163-token usage ([trace verification](reports/braintrust-integration.json)). Automatic tracing of real user media and health data is disabled. The initial LangSmith upload was rejected by the account's monthly unique-trace limit; local reports remain available. Do not claim cloud trace verification until a retry succeeds and reads back the run.
+The semantic model downloads from Hugging Face and runs locally. Gemini and Nebius are opt-in. Nebius needs `NEBIUS_API_KEY` and a current `NEBIUS_MODEL`. See [Nebius configuration and verified checks](docs/NEBIUS.md) and [Braintrust instrumentation and verification](docs/OBSERVABILITY.md). Integration success establishes connectivity and trace delivery; answer quality requires separate evaluation. Automatic tracing of uploaded media and health data is disabled. Course-specific LangSmith proof remains outstanding; the [weekly mapping](docs/WEEKLY_MAPPING.md) records the current status.
 
 ## Training
 
@@ -95,6 +91,6 @@ python training/prepare_qwen.py
 
 ## Privacy and limitations
 
-Raw uploads remain on the machine running the app. The route display makes no external map requests. A public server would receive uploads, so the shipped hosted-demo mode disables them. The optional cloud draft receives only redacted questions and aggregate evidence; redaction is not a comprehensive privacy guarantee. See the safety document for retention, threats, governance and release gates.
+Raw uploads remain on the machine running the app. The route display makes no external map requests. A public server would receive uploads; shared hosting must disable them until access, isolation and retention controls are in place. The optional cloud draft receives only redacted questions and aggregate evidence; redaction is not a comprehensive privacy guarantee. See the safety document for retention, threats, governance and release gates.
 
 This project measures observations, not medical causes. Its published benchmark is synthetic. Real-run field validation and independent labels are still needed.

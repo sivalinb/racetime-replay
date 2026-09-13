@@ -1,11 +1,11 @@
 # Release readiness
 
-Current intended release: reproducible local prototype and synthetic demonstration.
+Current intended release: reproducible local prototype for post-run evidence review.
 
 | Gate | State |
 |---|---|
 | Python app and OpenCV pipeline | Implemented; local UI and behavior tests recorded |
-| Dataset provenance | Synthetic video and authored questions clearly labeled |
+| Dataset provenance | Evaluation inputs are labeled; source and license records accompany bundled assets |
 | Event and routing evaluation | Local report includes baseline, measured results and limitations |
 | Fine-tuned router | Experiment completed; not promoted due to weak held-out accuracy |
 | NeMo and Guardrails AI | Executed checks; optional integrated policy mode |

@@ -4,16 +4,16 @@ This table distinguishes working code, measured evidence and unfinished external
 
 | Week | Learning demonstrated | Code and evidence | Status |
 |---|---|---|---|
-| 1 Data application | Python app, dataset import, charts, filters, interactive video, iterative AI-assisted development | [App](../app.py), [player](../replay/player.py), [data guide](DATA_GUIDE.md), [build log](BUILD_LOG.md) | Implemented and UI checked; a presentation script is supplied, but no narrated Loom is recorded |
+| 1 Data application | Python app, dataset import, charts, filters, interactive video, iterative AI-assisted development | [App](../app.py), [player](../replay/player.py), [data guide](DATA_GUIDE.md), [build log](BUILD_LOG.md) | Implemented and UI checked; real athlete validation remains outstanding |
 | 2 RAG | Defined corpus, cleaning into bounded event passages, lexical and dense embedding retrieval, persisted vectors, cited answers and insufficient-evidence behavior | [Retrieval](../replay/retrieval.py), [corpus](knowledge.json), [verified integration report](../reports/integrations.json) | Hybrid MiniLM and TF-IDF executed; corpus is small; broader retrieval benchmark remains future work |
 | 3 Agentic systems | Stateful LangGraph, routed evidence tools, checkpoints, failure recovery, evidence validation, human event review | [Agent](../replay/agent.py), [behavior tests](../tests/test_core.py), [developer guide](DEVELOPER_GUIDE.md) | Implemented bounded workflow; default router and canonical answer are deterministic; optional model-written draft verified |
 | 4 Evaluation | Versioned authored cases, quality and latency metrics, source-conflict baseline, failure analysis and measured improvements | [50-case report](../reports/evaluation.json), [evaluation runner](../scripts/evaluate.py), [integration check](../scripts/check_integrations.py) | Local evaluation complete; LangSmith hosted trace proof blocked by monthly account quota; data is synthetic and not independently human-labeled |
 | 5 Fine tuning | Labeled routing dataset, frozen baseline, rank-8 LoRA, loss and per-class metrics, adapter save/merge | [Training script](../training/train_router.py), [dataset](../training/dataset.json), [measured report](../reports/router-evaluation.json), [course variant](../training/qwen_lora.yaml) | BERT-tiny LoRA experiment executed, 52.5% to 60% accuracy; exact Qwen3/LLaMA-Factory handout run is supplied as a recipe and NOT executed |
 | 6 Safety and deployment | Threats, hallucination boundaries, prompt injection, NeMo input rail, Guardrails AI schema, privacy, adversarial tests, governance and release gate | [Safety](SAFETY.md), [framework code](../replay/framework_guards.py), [framework results](../reports/guardrails-evaluation.json), [release checklist](RELEASE.md) | Local controls and framework checks executed; real-run and production validation remain outstanding |
 
-## Submission assets
+## Project references
 
-[Product explanation](PRODUCT.md), [five-minute walkthrough script](DEMO_SCRIPT.md), [code](https://github.com/sivalinb/racetime-replay), test reports and architecture are supplied. The user retains control of course submission, video narration and any instructor communications.
+[Product explanation](PRODUCT.md), [illustrated product guide](https://docs.google.com/document/d/1ujhgZyvU_iwvN8Z4r5HdnNiKc6jDUuyxJYR3qVIiGYo/edit), [architecture](ARCHITECTURE.md), [developer guide](DEVELOPER_GUIDE.md), source code and measured reports describe the implemented system and its remaining work.
 
 ## Scope of the evidence
 

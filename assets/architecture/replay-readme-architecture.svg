@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1260" viewBox="0 0 1440 1260" role="img" aria-labelledby="title desc">
-<title id="title">RaceTime Replay architecture overview</title><desc id="desc">Exported video and watch data enter local OpenCV measurements and validated parsers, then offset alignment produces candidate events. A bounded LangGraph investigator retrieves and verifies evidence. Streamlit serves synchronized browser replay and human review. Optional Gemini or Nebius receives redacted text only; optional Braintrust exports restricted metadata for synthetic demos only. Files are local and graph checkpoints are in memory.</desc>
+<title id="title">RaceTime Replay architecture overview</title><desc id="desc">Exported video and watch data enter local OpenCV measurements and validated parsers, then offset alignment produces candidate events. A bounded LangGraph investigator retrieves and verifies evidence. Streamlit serves synchronized browser replay and human review. Optional Gemini or Nebius receives redacted text only; optional Braintrust exports restricted metadata for synthetic test sessions only. Files are local and graph checkpoints are in memory.</desc>
 <rect width="1440" height="1260" rx="24" fill="#f5f3eb"/>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#6a8790"/></marker></defs>
 <text x="40" y="48" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#187b70">RACETIME REPLAY  /  IMPLEMENTED PYTHON WORKFLOW</text>
 <text x="40" y="101" font-family="DejaVu Sans, sans-serif" font-size="37" font-weight="700" fill="#203646">From separate recordings to shared evidence</text>
-<text x="40" y="143" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="400" fill="#526976">Core analysis runs on the app host. The bundled demo works without an API key.</text>
+<text x="40" y="143" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="400" fill="#526976">Core analysis runs on the app host. Local measurements require no API key.</text>
 <rect x="40" y="190" width="400" height="215" rx="18" fill="#ffffff" stroke="none"/>
 <rect x="520" y="190" width="400" height="215" rx="18" fill="#ffffff" stroke="none"/>
 <rect x="1000" y="190" width="400" height="215" rx="18" fill="#ffffff" stroke="none"/>
@@ -81,7 +81,7 @@
 <text x="1024" y="951" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="700" fill="#396f9a">Evaluation + tracing</text>
 <text x="1024" y="992" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#203646">Local timings and synthetic evals</text>
 <text x="1024" y="1027" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Optional Braintrust metadata</text>
-<text x="1024" y="1062" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" fill="#a66b27">Synthetic demo sessions only</text>
+<text x="1024" y="1062" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" fill="#a66b27">Synthetic test sessions only</text>
 <text x="1024" y="1103" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" fill="#526976">No upload-session cloud tracing</text>
 <text x="40" y="1180" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#187b70">FUTURE EXTENSIONS</text>
 <text x="40" y="1219" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#526976">Visual scene summaries + terrain understanding + watch-informed optimization need further validation.</text>

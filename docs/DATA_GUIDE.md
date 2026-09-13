@@ -4,8 +4,6 @@
 
 Use one 10–15 minute recording and its matching workout. Export ordinary MP4 H.264 from GoPro, Insta360, iPhone or Meta glasses. Reframe 360-degree recordings to a conventional forward-facing video first. Proprietary raw 360 formats are not supported. A MOV file works only when this machine's decoder supports its codec. The app does not connect directly to camera or watch accounts.
 
-The bundled demo is a 90-second generated texture animation with invented measurements. It deliberately includes a stop, camera motion while GPS reports zero speed, frozen frames and a speed gap. It is not a visual terrain benchmark.
-
 ## Canonical CSV
 
 Required time: `timestamp` in ISO 8601 with timezone, or `elapsed_s` as seconds from workout start. Optional columns:

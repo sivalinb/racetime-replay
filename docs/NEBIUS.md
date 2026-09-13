@@ -18,7 +18,7 @@ PYTHONPATH=. python scripts/check_nebius.py --list-models
 PYTHONPATH=. python scripts/check_nebius.py
 ```
 
-The check uses only the synthetic demo. It sends one inference request and saves status, draft, latency and token usage. It does not provision dedicated capacity or start paid training. `reports/nebius-integration.json` distinguishes live execution from missing configuration. Transport tests verify payload minimization, opt-out, timeout fallback, truncated-output rejection and citation rejection. The September 12, 2026 credentialed synthetic check succeeded; details follow below.
+The check uses only synthetic test inputs. It sends one inference request and saves status, draft, latency and token usage. It does not provision dedicated capacity or start paid training. `reports/nebius-integration.json` distinguishes live execution from missing configuration. Transport tests verify payload minimization, opt-out, timeout fallback, truncated-output rejection and citation rejection. The September 12, 2026 credentialed synthetic check succeeded; details follow below.
 
 The payload contains a redacted question and at most eight bounded text passages. It excludes video, images, route coordinates, raw health samples and source filenames. `store=false` requests that completions not be stored for model distillation; it is not a blanket retention or regulatory-compliance guarantee. The current adapter uses the public endpoint. Regional dedicated endpoints would require an explicit deployment and configuration change.
 

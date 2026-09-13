@@ -56,5 +56,5 @@
 <text x="1030" y="524" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Review events and cited answers.</text>
 <text x="1030" y="553" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#526976">Confirm or reject after replay.</text>
 <text x="40" y="624" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" fill="#187b70">Video + watch data → moments worth reviewing</text>
-<text x="40" y="666" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Illustrative screens. Camera motion is not running speed. The bundled demo uses synthetic data.</text>
+<text x="40" y="666" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Illustrative screens. Camera motion is not running speed. Event candidates need human review.</text>
 </svg>

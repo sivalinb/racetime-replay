@@ -126,7 +126,7 @@ def introduction() -> None:
     d.text(
         40,
         666,
-        "Illustrative screens. Camera motion is not running speed. The bundled demo uses synthetic data.",
+        "Illustrative screens. Camera motion is not running speed. Event candidates need human review.",
         20,
         MUTED,
     )
@@ -137,7 +137,7 @@ def architecture() -> None:
     """Separate the local measurement path from optional cloud and lab features."""
     d = Diagram(
         "RaceTime Replay architecture overview",
-        "Exported video and watch data enter local OpenCV measurements and validated parsers, then offset alignment produces candidate events. A bounded LangGraph investigator retrieves and verifies evidence. Streamlit serves synchronized browser replay and human review. Optional Gemini or Nebius receives redacted text only; optional Braintrust exports restricted metadata for synthetic demos only. Files are local and graph checkpoints are in memory.",
+        "Exported video and watch data enter local OpenCV measurements and validated parsers, then offset alignment produces candidate events. A bounded LangGraph investigator retrieves and verifies evidence. Streamlit serves synchronized browser replay and human review. Optional Gemini or Nebius receives redacted text only; optional Braintrust exports restricted metadata for synthetic test sessions only. Files are local and graph checkpoints are in memory.",
         1260,
     )
     d.text(40, 48, "RACETIME REPLAY  /  IMPLEMENTED PYTHON WORKFLOW", 18, TEAL, 700)
@@ -145,7 +145,7 @@ def architecture() -> None:
     d.text(
         40,
         143,
-        "Core analysis runs on the app host. The bundled demo works without an API key.",
+        "Core analysis runs on the app host. Local measurements require no API key.",
         23,
         MUTED,
     )
@@ -222,7 +222,7 @@ def architecture() -> None:
     d.text(1024, 951, "Evaluation + tracing", 25, BLUE, 700)
     d.text(1024, 992, "Local timings and synthetic evals", 20)
     d.text(1024, 1027, "Optional Braintrust metadata", 21)
-    d.text(1024, 1062, "Synthetic demo sessions only", 21, AMBER, 700)
+    d.text(1024, 1062, "Synthetic test sessions only", 21, AMBER, 700)
     d.text(1024, 1103, "No upload-session cloud tracing", 19, MUTED)
     d.text(40, 1180, "FUTURE EXTENSIONS", 18, TEAL, 700)
     d.text(
