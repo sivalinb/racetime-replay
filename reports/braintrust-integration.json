@@ -2,14 +2,5 @@
   "braintrust": {
     "status": "not_configured",
     "remote_verified": false
-  },
-  "local_answer_status": "needs_review",
-  "actual_nodes": [
-    "guard",
-    "route",
-    "retrieve",
-    "investigate",
-    "answer",
-    "verify"
-  ]
+  }
 }

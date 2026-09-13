@@ -19,14 +19,20 @@ Install `requirements-observability.txt`. Add `BRAINTRUST_API_KEY` and `BRAINTRU
 ```bash
 python -m pip install -r requirements-observability.txt
 PYTHONPATH=. python scripts/check_braintrust.py
+# Include one bounded Nebius inference and verify its trace and token total:
+PYTHONPATH=. python scripts/check_braintrust.py --provider nebius
 PYTHONPATH=. python scripts/publish_braintrust_eval.py
 ```
 
-The first script executes a synthetic investigation and creates spans during actual node execution. The second imports the 50 previously measured development cases as a scored experiment, then reads back row IDs. Imported evaluation measurements are not presented as live spans. Both scripts require your API key; local reports distinguish missing configuration, submission and verified readback.
+The first script executes a synthetic investigation and creates spans during actual node execution. With `--provider nebius`, it includes one real cloud call and nests an `llm.nebius` span inside the answer node, recording duration, numeric token usage and a returned/failed outcome. Missing Braintrust credentials skip inference. After flushing, it reads the project logs and requires the exact root trace, expected span names and (when available) matching token totals before marking the run verified. Readback is bounded and incomplete ingestion stays unverified. The second imports the 50 previously measured development cases as a scored experiment, then reads back row IDs. Imported evaluation measurements are not presented as live spans. Both scripts require your API key; local reports distinguish missing configuration, submission and verified readback.
 
 The app also has an explicit **Send synthetic demo telemetry to Braintrust** checkbox. It is disabled for uploaded recordings. Manual hooks in `replay/observability.py` log only allowlisted node names, result categories, evidence counts, provider labels and numeric token usage. They do not log question text, model drafts, full graph state, GPS coordinates, raw health samples, source filenames or images. Exceptions from telemetry preserve the local answer; application errors still propagate.
 
-Braintrust supports automatic LangGraph instrumentation, but that normally captures inputs and outputs. This app deliberately uses bounded manual telemetry for its privacy requirements. Five tests cover opt-in, user-upload exclusion, payload boundaries, service failure and application error propagation. Remote visibility is never inferred solely from calling `flush()`.
+Braintrust supports automatic LangGraph instrumentation, but that normally captures inputs and outputs. This app deliberately uses bounded manual telemetry for its privacy requirements. Tests cover opt-in, user-upload exclusion, nested model spans, payload boundaries, service failure, application error propagation and exact-trace readback. Unrelated traces or mismatched token totals cannot pass verification. Remote visibility is never inferred solely from calling `flush()`.
+
+## Connection status
+
+The local project ID is configured. As of September 12, 2026, the Braintrust API key is still missing, so live Braintrust visibility has not been verified. The Nebius API key authenticates to Nebius only. Save a Braintrust API key as `BRAINTRUST_API_KEY` in the ignored local `.env`, then run the cloud trace check above. A successful Nebius inference alone does not establish Braintrust ingestion.
 
 ## Useful views and scores
 

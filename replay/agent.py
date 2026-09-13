@@ -10,7 +10,7 @@ from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.graph import END, START, StateGraph
 
 from replay.llm import Provider, cloud_synthesis
-from replay.observability import log_outcome, trace_step
+from replay.observability import log_outcome, trace_model, trace_step
 from replay.retrieval import EvidenceIndex, documents
 from replay.safety import input_policy, validate_answer
 
@@ -146,7 +146,9 @@ def build_agent(index: EvidenceIndex, router: Callable[[str], str] | None = None
         }
         if s.get("cloud") and refs:
             try:
-                output, usage = cloud_synthesis(s["question"], refs, s.get("provider"))
+                with trace_model(s.get("provider")) as model_usage:
+                    output, usage = cloud_synthesis(s["question"], refs, s.get("provider"))
+                    model_usage.update(usage)
                 # Keep cloud prose explicitly supplemental; canonical observations remain unchanged.
                 valid = validate_answer(
                     {**result, "answer": output["answer"], "evidence_ids": output["evidence_ids"]},
