@@ -32,7 +32,9 @@ Braintrust supports automatic LangGraph instrumentation, but that normally captu
 
 ## Connection status
 
-The local project ID is configured. As of September 12, 2026, the Braintrust API key is still missing, so live Braintrust visibility has not been verified. The Nebius API key authenticates to Nebius only. Save a Braintrust API key as `BRAINTRUST_API_KEY` in the ignored local `.env`, then run the cloud trace check above. A successful Nebius inference alone does not establish Braintrust ingestion.
+Live Braintrust ingestion was verified on September 12, 2026 with one synthetic Nebius investigation. API readback found the exact root trace, all six agent nodes and the nested `llm.nebius` span: eight spans total. The recorded token total matched the provider usage at 163 tokens, and the investigator returned a supplemental cloud draft for review. See the [verification report](../reports/braintrust-integration.json).
+
+Credentials are configured only in the ignored local `.env`. Start or restart Streamlit, choose **Explore demo**, enable **Add a cloud-written draft from redacted evidence**, select **nebius**, enable **Send synthetic demo telemetry to Braintrust**, and click **Investigate**. Live ingestion verification covers this synthetic trace; scored experiment import, dashboards and production monitoring are separate work.
 
 ## Useful views and scores
 

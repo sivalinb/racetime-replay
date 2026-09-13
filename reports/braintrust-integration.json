@@ -1,6 +1,31 @@
 {
   "braintrust": {
-    "status": "not_configured",
-    "remote_verified": false
-  }
+    "status": "verified",
+    "remote_verified": true,
+    "root_span_id": "f72517bf-ab18-405b-8a60-491415db083b",
+    "observed_names": [
+      "answer",
+      "guard",
+      "investigate",
+      "llm.nebius",
+      "racetime.investigation",
+      "retrieve",
+      "route",
+      "verify"
+    ],
+    "observed_tokens": 163
+  },
+  "local_answer_status": "needs_review",
+  "cloud_draft_present": true,
+  "actual_nodes": [
+    "guard",
+    "route",
+    "retrieve",
+    "investigate",
+    "answer",
+    "verify"
+  ],
+  "verified_at_utc": "2026-09-13T00:50:21.730734+00:00",
+  "provenance": "synthetic",
+  "verification_scope": "One live Nebius investigation; all eight expected spans and the 163-token total verified by Braintrust API readback."
 }
