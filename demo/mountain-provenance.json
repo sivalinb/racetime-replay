@@ -1,0 +1,18 @@
+{
+  "video": "Real first-person hiking footage, not footage of the user or a verified run.",
+  "creator": "I Am Sorin",
+  "source": "https://www.pexels.com/video/point-of-view-of-a-person-hiking-a-rocky-hill-6798218/",
+  "license": "https://www.pexels.com/license/",
+  "processing": "Downscaled to 1280x720 at 24 fps, H.264; no speed change, loops, inserted freezes, or scene generation.",
+  "workout": "All speed, heart rate, altitude, coordinates, and dates are simulated, not inferred from footage or exported from a real watch.",
+  "offset_s": 0,
+  "mock_zero_speed_s": [
+    20,
+    27
+  ],
+  "mock_missing_speed_s": [
+    43,
+    51
+  ],
+  "limitation": "Same demo timeline does not imply real correspondence between this hiker and simulated health signals. Not field-validation data."
+}

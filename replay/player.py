@@ -5,23 +5,30 @@ import json
 from pathlib import Path
 
 
-def player_html(video_path: str | Path, aligned, events: list[dict]) -> str:
+def player_html(
+    video_path: str | Path, aligned, events: list[dict], poster_path: str | Path | None = None
+) -> str:
     """Build a sandboxed player whose video clock drives local charts and route."""
     media = base64.b64encode(Path(video_path).read_bytes()).decode()
+    poster = ""
+    if poster_path is not None:
+        poster_bytes = base64.b64encode(Path(poster_path).read_bytes()).decode()
+        poster = f'poster="data:image/jpeg;base64,{poster_bytes}"'
     rows = json.loads(
         aligned[["video_s", "speed_mps", "heart_rate_bpm", "latitude", "longitude"]].to_json(
             orient="records"
         )
     )
     payload = json.dumps({"rows": rows, "events": events}).replace("<", "\\u003c")
-    return """<!doctype html><html><head><style>
+    return (
+        """<!doctype html><html><head><style>
 *{box-sizing:border-box}body{margin:0;background:#0d2027;color:#e4efed;font:14px system-ui}
 .wrap{padding:18px;border:1px solid #26434a;border-radius:16px}.grid{display:grid;grid-template-columns:1.7fr 1fr;gap:16px}
 video{width:100%;max-height:330px;background:#051015;border-radius:10px}canvas{width:100%;border-radius:8px;background:#102a32}
 h3{font-size:13px;font-weight:500;color:#9cbab9;margin:0 0 8px}.numbers{display:flex;gap:28px;margin:12px 0}.n{font-size:24px;color:#faf6ee}
 small{color:#9cbab9}.events{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}button{padding:8px 10px;color:#dcebe8;border:1px solid #49656c;background:#193840;border-radius:20px;cursor:pointer}button:hover{background:#31535a}
 input{width:100%;accent-color:#f0ae6e}.caption{font-size:12px;color:#97b2b3;margin-top:8px}@media(max-width:650px){.grid{grid-template-columns:1fr}.wrap{padding:10px}}
-</style></head><body><div class="wrap"><div class="grid"><div><video id="video" controls preload="metadata" src="data:video/mp4;base64,MEDIA"></video>
+</style></head><body><div class="wrap"><div class="grid"><div><video id="video" controls preload="metadata" POSTER src="data:video/mp4;base64,MEDIA"></video>
 <div class="numbers"><div><small>VIDEO TIME</small><div class="n" id="time">0:00</div></div><div><small>SPEED · M/S</small><div class="n" id="speed">—</div></div><div><small>HEART RATE · BPM</small><div class="n" id="hr">—</div></div></div>
 <input aria-label="Seek synchronized replay" type="range" id="seek" min="0" step="0.1" value="0"><div class="caption">Scrub the video or click a signal chart. Missing samples stay blank.</div></div>
 <div><h3>WORKOUT SIGNALS</h3><canvas aria-label="Synchronized speed and heart rate chart" id="chart" width="420" height="195"></canvas><h3 style="margin-top:16px">ROUTE SHAPE · NO EXTERNAL MAP SERVICE</h3><canvas aria-label="Route position" id="map" width="420" height="130"></canvas></div></div><div class="events" id="events"></div><div class="caption">Candidates require review. Visual motion does not establish running speed or a medical cause.</div></div>
@@ -39,4 +46,7 @@ let xs=geo.map(r=>r.longitude),ys=geo.map(r=>r.latitude),xmin=Math.min(...xs),xm
 let project=r=>[20+(r.longitude-xmin)/(xmax-xmin||1)*380,110-(r.latitude-ymin)/(ymax-ymin||1)*90];mc.strokeStyle='#557d80';mc.lineWidth=3;mc.beginPath();geo.forEach((r,i)=>{let[x,y]=project(r);if(i)mc.lineTo(x,y);else mc.moveTo(x,y)});mc.stroke();if(row.latitude!=null&&row.longitude!=null){let[x,y]=project(row);mc.fillStyle='#f0ae6e';mc.beginPath();mc.arc(x,y,6,0,7);mc.fill()}}
 v.ontimeupdate=()=>draw(v.currentTime);seek.oninput=()=>{v.currentTime=Number(seek.value);draw(v.currentTime)};document.getElementById('chart').onclick=e=>{let rect=e.target.getBoundingClientRect();v.currentTime=Math.max(0,Math.min(duration,(e.clientX-rect.left)/rect.width*duration));draw(v.currentTime)};
 for(let e of data.events){let b=document.createElement('button');b.textContent=fmt(e.start_s)+' · '+e.kind.replaceAll('_',' ');b.onclick=()=>{v.currentTime=e.start_s;draw(e.start_s)};document.getElementById('events').appendChild(b)}draw(0);
-</script></body></html>""".replace("MEDIA", media).replace("PAYLOAD", payload)
+</script></body></html>""".replace("MEDIA", media)
+        .replace("PAYLOAD", payload)
+        .replace("POSTER", poster)
+    )

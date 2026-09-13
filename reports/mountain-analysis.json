@@ -1,0 +1,24 @@
+{
+  "events": [
+    {
+      "start_s": 20.0,
+      "end_s": 27.0,
+      "duration_s": 7.0,
+      "kind": "sensor_conflict",
+      "id": "E001"
+    },
+    {
+      "start_s": 44.5,
+      "end_s": 49.0,
+      "duration_s": 4.5,
+      "kind": "missing_speed",
+      "id": "E002"
+    }
+  ],
+  "stop_candidate_s": 0,
+  "speed_coverage": 0.925,
+  "heart_rate_coverage": 1.0,
+  "conflict_samples": 14,
+  "duration_s": 59.5,
+  "interpretation": "Candidate stops and source disagreements require review. Camera motion is not running speed."
+}

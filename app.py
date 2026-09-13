@@ -56,6 +56,15 @@ with st.sidebar:
     )
     video_path = ROOT / "demo/replay-demo.mp4"
     workout_path = ROOT / "demo/workout.csv"
+    mountain_demo = False
+    if source == "Explore demo":
+        examples = ["Diagnostic motion fixture"]
+        if (ROOT / "demo/mountain-pov.mp4").exists():
+            examples.insert(0, "Mountain trail POV")
+        mountain_demo = st.selectbox("Demo recording", examples) == "Mountain trail POV"
+        if mountain_demo:
+            video_path = ROOT / "demo/mountain-pov.mp4"
+            workout_path = ROOT / "demo/mountain-workout.csv"
     workout = None
     if source == "Upload my recording":
         video = st.file_uploader("Runner video", type=["mp4", "mov"])
@@ -140,9 +149,21 @@ aligned = st.session_state.aligned
 report = st.session_state.report
 meta = st.session_state.meta
 if source == "Explore demo":
-    st.info(
-        "SYNTHETIC DEMO · A generated motion video and invented workout test stops, frozen frames, missing samples, and sensor disagreements. These are not your results or real trail footage."
-    )
+    if mountain_demo:
+        st.info(
+            "MOUNTAIN POV DEMO · Real hiking footage with simulated watch metrics on the same "
+            "60-second timeline. Speed, heart rate, and route are invented; they were not "
+            "recorded by the person filming. Video movement is unchanged."
+        )
+        st.caption(
+            "Footage: [I Am Sorin / Pexels](https://www.pexels.com/video/point-of-view-of-a-person-hiking-a-rocky-hill-6798218/) "
+            "· [Pexels license](https://www.pexels.com/license/). "
+            "The diagnostic fixture remains available for controlled stop and frozen-frame tests."
+        )
+    else:
+        st.info(
+            "SYNTHETIC DEMO · A generated motion video and invented workout test stops, frozen frames, missing samples, and sensor disagreements. These are not your results or real trail footage."
+        )
 cols = st.columns(4)
 cols[0].metric("Video analyzed", f"{meta['duration_s']:.0f} sec")
 cols[1].metric("Candidate stop time", f"{report['stop_candidate_s']:.1f} sec")
@@ -152,7 +173,8 @@ replay_tab, ask_tab, proof_tab, story_tab = st.tabs(
     ["Replay & events", "Ask the evidence", "Build & evaluation", "Why this matters"]
 )
 with replay_tab:
-    st.iframe(player_html(video_path, aligned, report["events"]), height=520)
+    poster_path = ROOT / "demo/mountain-poster.jpg" if mountain_demo else None
+    st.iframe(player_html(video_path, aligned, report["events"], poster_path), height=520)
     st.subheader("Review the moments")
     if report["events"]:
         event = st.selectbox(

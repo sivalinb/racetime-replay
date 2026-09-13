@@ -25,7 +25,11 @@ python -m pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The bundled 90-second demo runs without an API key. It is a generated motion fixture with invented workout values, not real trail footage. Select **Upload my recording** for your own MP4/MOV plus CSV, GPX or Health XML. Read the data guide for timestamp conventions. The prototype limits video to 15 minutes and 150 MB. For a public demo, set `REPLAY_ALLOW_UPLOADS=false`.
+The default **Mountain trail POV** demo uses a 60-second real hiking clip with simulated watch metrics on the same timeline. The footage shows the rocky trail ahead of the camera; its movement is unchanged. Heart rate, speed, route, and dates are invented, not measurements of the person filming. The **Diagnostic motion fixture** remains available for controlled stop and frozen-frame tests. Both run without an API key.
+
+Footage: [I Am Sorin / Pexels](https://www.pexels.com/video/point-of-view-of-a-person-hiking-a-rocky-hill-6798218/), used under the [Pexels license](https://www.pexels.com/license/). See the [demo provenance](demo/mountain-provenance.json) and [sample data guide](demo/MOUNTAIN_DEMO.md).
+
+Select **Upload my recording** for your own MP4/MOV plus CSV, GPX or Health XML. Read the data guide for timestamp conventions. The prototype limits video to 15 minutes and 150 MB. For a public demo, set `REPLAY_ALLOW_UPLOADS=false`.
 
 ## What works
 
