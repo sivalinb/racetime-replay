@@ -20,7 +20,7 @@ This table distinguishes working code, measured evidence and unfinished external
 The handouts include example projects and specific tooling. This is a custom capstone adapting those learning objectives. Its small encoder LoRA experiment is not the Qwen generative-model training exercise. A framework configuration is not counted as executed unless its report exists. Local node timing is not a substitute for a verified hosted LangSmith trace. No real runner video or Watch export was supplied, so field performance is unmeasured.
 
 ## Nebius extension
-[Token Factory integration](NEBIUS.md) adds provider selection, bounded text synthesis, token usage, timeout recovery and transport tests. Live Nebius inference is not yet verified because no API key/model configuration was supplied. Vision, hosted fine-tuning and model comparison are documented extensions.
+[Token Factory integration](NEBIUS.md) adds provider selection, bounded text synthesis, token usage, timeout recovery and transport tests. A live synthetic inference check succeeded on September 12, 2026 with Qwen3-30B-A3B-Instruct-2507 (481 tokens, about 5.5 seconds; existing schema and citation checks passed). This verifies one integration path, not answer quality; the model exceeded the requested three sentences. See the [recorded result](../reports/nebius-integration.json). Vision, hosted fine-tuning and model comparison are documented extensions.
 
 ## Braintrust observability
 [Braintrust integration](OBSERVABILITY.md) adds optional real node spans and a scored synthetic evaluation importer with server readback. Local boundary tests passed. Live connection requires an API key; it does not replace course-specific LangSmith proof.

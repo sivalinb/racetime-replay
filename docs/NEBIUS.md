@@ -18,9 +18,17 @@ PYTHONPATH=. python scripts/check_nebius.py --list-models
 PYTHONPATH=. python scripts/check_nebius.py
 ```
 
-The check uses only the synthetic demo. It sends one inference request and saves status, draft, latency and token usage. It does not provision dedicated capacity or start paid training. `reports/nebius-integration.json` distinguishes live execution from missing configuration. Transport tests verify payload minimization, opt-out, timeout fallback, truncated-output rejection and citation rejection. No live Nebius result is claimed without a credentialed run.
+The check uses only the synthetic demo. It sends one inference request and saves status, draft, latency and token usage. It does not provision dedicated capacity or start paid training. `reports/nebius-integration.json` distinguishes live execution from missing configuration. Transport tests verify payload minimization, opt-out, timeout fallback, truncated-output rejection and citation rejection. The September 12, 2026 credentialed synthetic check succeeded; details follow below.
 
 The payload contains a redacted question and at most eight bounded text passages. It excludes video, images, route coordinates, raw health samples and source filenames. `store=false` requests that completions not be stored for model distillation; it is not a blanket retention or regulatory-compliance guarantee. The current adapter uses the public endpoint. Regional dedicated endpoints would require an explicit deployment and configuration change.
+
+## Verified synthetic run — September 12, 2026
+
+The authenticated model catalog and one end-to-end request succeeded with `Qwen/Qwen3-30B-A3B-Instruct-2507`. The bounded investigator received a JSON draft and passed its existing schema and citation allowlist checks. Total investigator latency was about 5.5 seconds, with 299 prompt tokens and 182 completion tokens (481 total). The [recorded result](../reports/nebius-integration.json) contains synthetic evidence, the draft, token usage and local node timings.
+
+The response used five sentences despite the three-sentence instruction. The current checks do not enforce brevity or independently establish factual correctness. One successful synthetic request does not establish model superiority, real-run accuracy or production reliability. Broader model comparison and reviewed evaluations remain future work.
+
+To use a configured local instance, start or restart Streamlit, open **Ask the evidence**, enable **Add a cloud-written draft from redacted evidence**, and select **nebius**. Try “Summarize the measured events.” Cloud drafts remain opt-in; the original measurements stay visible.
 
 ## How it extends the six weeks
 
@@ -29,7 +37,7 @@ The payload contains a redacted question and at most eight bounded text passages
 | 1 | Add a readable summary alongside the Python replay dashboard | Provider selection implemented |
 | 2 | Write cited answers from retrieved evidence; compare hosted embeddings or reranking if suitable models are available | Text synthesis adapter implemented; embeddings stay local |
 | 3 | Use a language model inside the bounded investigator; later evaluate model tool selection | Synthesis integrated; routing remains local |
-| 4 | Compare models on the same cases using citation validity, unsupported claims, latency, tokens and reviewed usefulness | Usage capture and synthetic smoke runner implemented; live comparison needs an API key |
+| 4 | Compare models on the same cases using citation validity, unsupported claims, latency, tokens and reviewed usefulness | Usage capture and one live synthetic smoke run verified; comparative quality evaluation remains future work |
 | 5 | Fine-tune a supported model on reviewed domain examples, with a separate held-out set | Future cloud experiment; existing BERT adapter is not a compatible drop-in for an unrelated model |
 | 6 | Apply input rails, bounded requests, output validation, opt-in, fallback and release review to every provider | Local controls and fake-transport tests implemented |
 

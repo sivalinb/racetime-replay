@@ -1,5 +1,83 @@
 {
   "provider": "nebius",
-  "status": "not_executed",
-  "reason": "API key and model ID are required."
+  "status": "executed",
+  "provenance": "synthetic",
+  "result": {
+    "status": "needs_review",
+    "route": "summary",
+    "answer": "repeated_frame from 21.5 to 30.0 seconds. Duration 8.5 seconds. Measured candidate; human review needed. [E002]\n\nstop_candidate from 20.5 to 30.0 seconds. Duration 9.5 seconds. Measured candidate; human review needed. [E001]\n\nsensor_conflict from 45.0 to 50.0 seconds; duration 5.0 seconds. [E003]\n\nrepeated_frame from 65.5 to 69.0 seconds; duration 3.5 seconds. [E004]\n\nmissing_speed from 76.5 to 79.0 seconds; duration 2.5 seconds. [E005]",
+    "evidence_ids": [
+      "E002",
+      "E001",
+      "E003",
+      "E004",
+      "E005"
+    ],
+    "caveats": [
+      "Camera motion does not establish running speed or a physiological cause.",
+      "Alignment and detected events require human review."
+    ],
+    "cloud_draft": "A repeated frame occurred from 21.5 to 30.0 seconds, lasting 8.5 seconds. A stop candidate was detected from 20.5 to 30.0 seconds, lasting 9.5 seconds. A sensor conflict was recorded from 45.0 to 50.0 seconds, lasting 5.0 seconds. Another repeated frame was observed from 65.5 to 69.0 seconds, lasting 3.5 seconds. A missing speed event was measured from 76.5 to 79.0 seconds, lasting 2.5 seconds.",
+    "cloud_usage": {
+      "completion_tokens": 182,
+      "prompt_tokens": 299,
+      "total_tokens": 481,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": null,
+      "provider": "nebius",
+      "model": "Qwen/Qwen3-30B-A3B-Instruct-2507"
+    },
+    "cloud_status": "Draft for review; evidence above remains authoritative.",
+    "steps": [
+      "input_policy",
+      "route:summary",
+      "retrieve_evidence",
+      "tool:summary",
+      "compose_evidence",
+      "verify_references",
+      "human_review_available"
+    ],
+    "spans": [
+      {
+        "name": "guard",
+        "latency_ms": 0.013,
+        "status": "completed"
+      },
+      {
+        "name": "route",
+        "latency_ms": 0.007,
+        "status": "completed"
+      },
+      {
+        "name": "retrieve",
+        "latency_ms": 1.078,
+        "status": "completed"
+      },
+      {
+        "name": "investigate",
+        "latency_ms": 0.013,
+        "status": "completed"
+      },
+      {
+        "name": "answer",
+        "latency_ms": 5487.784,
+        "status": "completed"
+      },
+      {
+        "name": "verify",
+        "latency_ms": 0.042,
+        "status": "completed"
+      }
+    ],
+    "latency_ms": 5493.97,
+    "retrieval_mode": "TF-IDF lexical retrieval",
+    "question_hash": "4f76dcbba9d476ea",
+    "review": "pending"
+  },
+  "verified_at_utc": "2026-09-13T00:42:51.747915+00:00",
+  "verification_scope": "One synthetic end-to-end inference; existing output schema and citation checks passed. Not a model-quality benchmark.",
+  "review_notes": [
+    "The model produced five sentences instead of the requested three; brevity adherence is not enforced by the current validator.",
+    "The draft remains supplemental and requires human review. No real runner media or health data was sent."
+  ]
 }
