@@ -33,6 +33,12 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed" if presentation_mode else "expanded",
 )
+if st.query_params.get("story") == "1":
+    from replay.story import render_story
+
+    render_story(ROOT)
+    st.stop()
+
 st.markdown(
     """<style>
 .stApp{background:#f7f5ef}header[data-testid="stHeader"]{background:#f7f5ef}

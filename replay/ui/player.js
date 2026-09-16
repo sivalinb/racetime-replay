@@ -52,8 +52,8 @@ function draw(t) {
 }
 el("togglePlay").onclick=()=>video.paused?video.play():video.pause();
 video.onplay=()=>{el("togglePlay").textContent="Pause replay";};video.onpause=()=>{el("togglePlay").textContent="Play replay";};
-video.ontimeupdate=()=>draw(video.currentTime);video.onloadedmetadata=()=>draw(video.currentTime);
+video.ontimeupdate=()=>draw(video.currentTime);video.onloadedmetadata=()=>jump(data.start_s || 0);
 seek.oninput=()=>jump(Number(seek.value));el("start").onclick=()=>jump(0);el("peak").disabled=!peak;el("peak").onclick=()=>{if(peak)jump(peak.video_s);};
 el("chart").onclick=event=>{const r=event.target.getBoundingClientRect();jump(((event.clientX-r.left)/r.width*480-40)/426*duration);};
 for(const event of data.events){const button=document.createElement("button");button.textContent=`${time(event.start_s)} · ${event.kind==="heart_rate_zone_change"?`Zone ${event.from_zone} → ${event.to_zone}`:event.kind.replaceAll("_"," ")}`;button.onclick=()=>jump(event.start_s);el("events").append(button);}
-draw(0);
+draw(data.start_s || 0);

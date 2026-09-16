@@ -1,0 +1,25 @@
+{
+  "status": "Real stock footage; all workout readings and zone thresholds are simulated.",
+  "relationship": "Two independent examples, not one outing. The stream opener has no watch data.",
+  "limits": "No automatic scene labels, medical conclusions, hazard alerts or proven improvements.",
+  "sources": {
+    "rocky": {
+      "url": "https://videos.pexels.com/video-files/4606798/4606798-uhd_2560_1440_24fps.mp4",
+      "page": "https://www.pexels.com/video/a-hiker-walking-on-the-edge-of-a-cliff-4606798/",
+      "creator": "K / Pexels",
+      "license": "https://www.pexels.com/license/",
+      "poster_s": 12,
+      "source_sha256": "17fe4d63b73b824845a66295e17d57575ec9b22b150834adcb4a5cbcb17385aa",
+      "prepared_sha256": "b5508051cba27de71d26409462e10b497f846f4a1608d384771532b3d3587594"
+    },
+    "stream": {
+      "url": "https://assets.mixkit.co/videos/44352/44352-720.mp4",
+      "page": "https://mixkit.co/free-stock-video/couple-running-over-a-stream-44352/",
+      "creator": "Mixkit",
+      "license": "https://mixkit.co/license/",
+      "poster_s": 2,
+      "source_sha256": "1389ba87a997aed910d72026b7e761048d0958059264646bc3e9e1c7da09da6b",
+      "prepared_sha256": "2703a5000813c4e574a422e21eab7988cabbe8d31490d01b2e87c0e3f61cca59"
+    }
+  }
+}

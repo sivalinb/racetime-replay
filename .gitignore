@@ -18,3 +18,8 @@ training/merged/
 assets/siva-running.jpg
 assets/replay-story.png
 docs/RaceTime-Replay-Overview.docx
+
+# Licensed story footage is prepared locally, not redistributed as stock files.
+demo/story/*.mp4
+demo/story/*.jpg
+demo/story/.sources/

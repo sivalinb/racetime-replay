@@ -23,7 +23,13 @@ PLAYER_COLUMNS = [
 
 
 def player_html(
-    video_path: str | Path, aligned, events: list[dict], poster_path: str | Path | None = None
+    video_path: str | Path,
+    aligned,
+    events: list[dict],
+    poster_path: str | Path | None = None,
+    *,
+    focused: bool = False,
+    start_s: float = 0,
 ) -> str:
     """Embed only local media and measurements; this component has no network calls.
 
@@ -41,6 +47,7 @@ def player_html(
             "rows": rows,
             "events": events,
             "profile": aligned.attrs.get("heart_rate_zones"),
+            "start_s": start_s,
         }
     ).replace("<", "\\u003c")
     html = (UI / "player.html").read_text()
@@ -50,6 +57,7 @@ def player_html(
         "@@MEDIA@@": media,
         "@@POSTER@@": poster,
         "@@DATA@@": payload,
+        "@@MODE@@": "focused" if focused else "",
     }.items():
         html = html.replace(token, value)
     return html

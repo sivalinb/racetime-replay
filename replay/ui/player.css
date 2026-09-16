@@ -238,6 +238,14 @@ canvas {
     gap:24px
   }
 }
+/* The guided story reveals three readings; the full workspace keeps all signals. */
+.focused .context-title,.focused .context-grid,.focused .optional-grid{display:none}
+.focused video{max-height:250px;aspect-ratio:16/9;object-fit:contain}
+.focused .grid{grid-template-columns:1.6fr 1fr;align-items:center}
+.focused canvas{height:auto}
+.focused .wrap{padding:16px 20px}
+.focused header,.focused .events,.focused .caption,.focused #seek{display:none}
+@media(max-width:700px){.focused .grid{grid-template-columns:1fr}}
 /* Keep contextual signals visible beside the clip during a projected demo. */
 video {
   max-height:240px
