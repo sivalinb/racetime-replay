@@ -6,20 +6,69 @@ from pathlib import Path
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+from replay.performance import performance_document
+
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def event_document(event: dict) -> dict:
+    """Describe measured facts consistently, including on retrieval failure."""
+    text = (
+        f"{event['kind']} from {event['start_s']} to {event['end_s']} seconds. "
+        f"Duration {event['duration_s']} seconds. Measured candidate; human review needed."
+    )
+    if event["kind"] == "heart_rate_zone_change":
+        profile = event.get("profile") or {}
+        text = (
+            f"Heart rate enters zone {event['to_zone']} from zone {event['from_zone']} "
+            f"at {event['start_s']} seconds and stays in that band until {event['end_s']} seconds. "
+            f"Recorded heart rate in this interval: {event['min_hr_bpm']:g}–"
+            f"{event['peak_hr_bpm']:g} bpm. "
+            f"Zone profile: {profile.get('source', 'supplied thresholds')}; "
+            f"lower bounds for zones 2–5: {profile.get('lower_bounds_bpm', [])} bpm. "
+            "Review the matching video for visible context. The readings do not establish "
+            "a climb, terrain difficulty, fatigue, recovery or the cause of the change."
+        )
+        units = {
+            "pace_min_km": "pace (decimal min/km)",
+            "cadence_spm": "cadence (steps/min)",
+            "altitude_m": "elevation (m)",
+            "running_power_w": "running power (W)",
+            "spo2_percent": "intermittent SpO2 (%)",
+            "core_temperature_c": "sensor-reported core temperature (°C)",
+        }
+        ranges = event.get("context_ranges", {})
+        if ranges:
+            text += (
+                " Available context: "
+                + "; ".join(
+                    f"{units[key]} {values['min']:g}–{values['max']:g}"
+                    for key, values in ranges.items()
+                    if key in units
+                )
+                + "."
+            )
+        if "spo2_percent" not in ranges:
+            text += " No blood-oxygen reading is available in this interval."
+        if event.get("core_temperature_sources"):
+            text += (
+                " Core-temperature source: " + "; ".join(event["core_temperature_sources"]) + "."
+            )
+            text += " This is not skin or ambient temperature and does not establish heat strain."
+    return {
+        "id": event["id"],
+        "text": text,
+        "source": f"video:{event['start_s']}-{event['end_s']}",
+    }
 
 
 def documents(report: dict) -> list[dict]:
     """Combine versioned explanatory passages with bounded measured event records."""
     docs = json.loads((ROOT / "docs/knowledge.json").read_text())
     for event in report["events"]:
-        docs.append(
-            {
-                "id": event["id"],
-                "text": f"{event['kind']} from {event['start_s']} to {event['end_s']} seconds. Duration {event['duration_s']} seconds. Measured candidate; human review needed.",
-                "source": f"video:{event['start_s']}-{event['end_s']}",
-            }
-        )
+        docs.append(event_document(event))
+    if report.get("performance_review"):
+        docs.append(performance_document(report["performance_review"]))
     return docs
 
 

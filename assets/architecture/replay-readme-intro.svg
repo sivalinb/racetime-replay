@@ -46,15 +46,15 @@
 <rect x="1030" y="262" width="340" height="190" rx="12" fill="#e6f1ea" stroke="none"/>
 <rect x="1047" y="279" width="305" height="68" rx="8" fill="#ffffff" stroke="none"/>
 <circle cx="1065" cy="301" r="6" fill="#187b70" stroke="none" stroke-width="2"/>
-<text x="1081" y="307" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" fill="#187b70">Stop candidate</text>
+<text x="1081" y="307" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" fill="#187b70">Heart-rate zone change</text>
 <text x="1060" y="332" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" fill="#526976">Open the timestamped frame</text>
 <rect x="1047" y="359" width="305" height="68" rx="8" fill="#ffffff" stroke="none"/>
 <circle cx="1065" cy="381" r="6" fill="#a66b27" stroke="none" stroke-width="2"/>
-<text x="1081" y="387" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" fill="#a66b27">Sensor disagreement</text>
-<text x="1060" y="412" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" fill="#526976">Compare video and watch</text>
-<text x="1030" y="490" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" fill="#203646">Watch. Inspect. Decide.</text>
+<text x="1081" y="387" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" fill="#a66b27">Proposed experiment</text>
+<text x="1060" y="412" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" fill="#526976">Review before testing</text>
+<text x="1030" y="490" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" fill="#203646">Compare. Review. Test.</text>
 <text x="1030" y="524" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Review events and cited answers.</text>
-<text x="1030" y="553" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#526976">Confirm or reject after replay.</text>
+<text x="1030" y="553" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#526976">Save a reviewed observation.</text>
 <text x="40" y="624" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" fill="#187b70">Video + watch data → moments worth reviewing</text>
 <text x="40" y="666" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Illustrative screens. Camera motion is not running speed. Event candidates need human review.</text>
 </svg>

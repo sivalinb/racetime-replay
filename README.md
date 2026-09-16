@@ -1,6 +1,6 @@
 # RaceTime Replay
 
-**See the run behind the numbers.** A Python application that aligns runner video with workout data so athletes can review candidate stops, source disagreements and the evidence behind an explanation.
+**See the run behind the numbers.** A Python application that aligns runner video with workout data so athletes can compare effort with visible context, review an evidence-backed performance summary and choose an improvement to test.
 
 [Product story](docs/PRODUCT.md) · [Illustrated product guide](https://docs.google.com/document/d/1ujhgZyvU_iwvN8Z4r5HdnNiKc6jDUuyxJYR3qVIiGYo/edit) · [Week-by-week evidence](docs/WEEKLY_MAPPING.md) · [Developer guide](docs/DEVELOPER_GUIDE.md) · [Data guide](docs/DATA_GUIDE.md) · [Safety](docs/SAFETY.md) · [Nebius integration](docs/NEBIUS.md) · [Braintrust observability](docs/OBSERVABILITY.md)
 
@@ -12,7 +12,7 @@
 
 Trail runners and endurance athletes who want to revisit moments in their own recordings. Coaches and crew can review shared clips with permission. The first version saves the manual step of aligning separate evidence sources; measured time savings and performance benefits are still future validation work.
 
-GoPro, Insta360, iPhone and camera-equipped Meta glasses offer several ways to capture first-person video. A watch records a different view of the same session. RaceTime accepts exported files and brings those records together. It does not claim every device supplies continuous video or identical metadata.
+GoPro, Insta360, iPhone and camera-equipped Meta glasses offer several ways to capture first-person video. Sports watches such as Garmin, COROS, Suunto and Apple Watch record a different view of the same session. RaceTime accepts exported files and brings those records together. It does not claim every device supplies continuous video or identical metadata.
 
 ## Run locally
 
@@ -32,9 +32,11 @@ Select **Upload my recording** for your own MP4/MOV plus CSV, GPX or Health XML.
 - OpenCV video decoding, optical-flow motion and quality measurements.
 - CSV, GPX and bounded Apple Health XML input with explicit unit conversion.
 - Manual synchronization offset, nearest-sample alignment and missing-data preservation.
-- One video clock driving speed, heart-rate and route-shape display.
+- One video clock driving heart rate, personal zones, pace, cadence, elevation and running power.
+- Optional timestamped SpO₂ and explicitly sourced core-temperature readings; missing values stay missing.
+- Measured start-to-peak comparisons and proposed experiments for human review, without a fitness score or promised gain.
 - Candidate stops, repeated frames and video/speed disagreement detection.
-- Timestamped evidence frames and human event review.
+- Timestamped evidence frames and explicitly saved human observations.
 - A bounded LangGraph investigator with retrieval, tool fallbacks, reference checks and local node timings.
 - Optional MiniLM hybrid retrieval and optional Gemini or Nebius drafts from redacted aggregate evidence.
 - Reproducible evaluation, a real small LoRA experiment and executable guardrail checks.
@@ -45,7 +47,9 @@ Select **Upload my recording** for your own MP4/MOV plus CSV, GPX or Health XML.
 
 [View the full-size architecture](assets/architecture/replay-readme-architecture.svg) · [Architecture details and diagram source](docs/ARCHITECTURE.md)
 
-The local path turns exported recordings into measurements, candidate events and timestamped evidence. The browser keeps video, charts and route display on one clock; athletes can review events directly or ask the bounded investigator to explain the available evidence. Optional Gemini or Nebius drafts receive redacted text evidence, while optional Braintrust tracing is restricted to synthetic test metadata.
+The local path turns exported recordings into measurements, candidate events and timestamped evidence. The browser keeps video and measurement charts on one clock; athletes can review events directly or ask the bounded investigator to explain the available evidence. Optional Gemini or Nebius drafts receive redacted text evidence, while optional Braintrust tracing is restricted to synthetic test metadata.
+
+See the [performance review workflow](docs/PERFORMANCE_REVIEW.md) for how measured observations become a proposed experiment. Core temperature requires a compatible external sensor export; skin and ambient temperature are not substitutes. Supported file formats determine compatibility—native FIT/TCX and direct account sync are not implemented.
 
 ## What is intentionally future work
 
@@ -91,6 +95,6 @@ python training/prepare_qwen.py
 
 ## Privacy and limitations
 
-Raw uploads remain on the machine running the app. The route display makes no external map requests. A public server would receive uploads; shared hosting must disable them until access, isolation and retention controls are in place. The optional cloud draft receives only redacted questions and aggregate evidence; redaction is not a comprehensive privacy guarantee. See the safety document for retention, threats, governance and release gates.
+Raw uploads remain on the machine running the app. No external map service receives route coordinates. A public server would receive uploads; shared hosting must disable them until access, isolation and retention controls are in place. The optional cloud draft receives only redacted questions and aggregate evidence; redaction is not a comprehensive privacy guarantee. See the safety document for retention, threats, governance and release gates.
 
 This project measures observations, not medical causes. Its published benchmark is synthetic. Real-run field validation and independent labels are still needed.

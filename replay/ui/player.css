@@ -1,0 +1,289 @@
+:root {
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color-scheme:dark;
+  --ink:#f5f2e9;
+  --muted:#b5cacb;
+  --mint:#98dfca;
+  --line:#456169
+}
+* {
+  box-sizing:border-box
+}
+body {
+  margin:0;
+  background:#10242b;
+  color:var(--ink);
+  font-size:14px
+}
+h1,h2,p {
+  margin:0
+}
+.wrap {
+  padding:20px;
+  border:1px solid #34545b;
+  border-radius:12px
+}
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:start;
+  gap:22px;
+  margin-bottom:16px
+}
+.eyebrow {
+  font-size:10px;
+  letter-spacing:.16em;
+  color:var(--mint);
+  font-weight:650;
+  margin-bottom:7px
+}
+h1 {
+  font-size:21px;
+  font-weight:600;
+  letter-spacing:-.02em
+}
+.profile {
+  font-size:11px;
+  line-height:1.4;
+  color:var(--muted);
+  max-width:225px;
+  text-align:right
+}
+.grid {
+  display:grid;
+  grid-template-columns:1.45fr 1fr;
+  gap:24px
+}
+video {
+  display:block;
+  width:100%;
+  max-height:330px;
+  background:#051015;
+  border-radius:8px
+}
+.numbers {
+  display:grid;
+  grid-template-columns:.7fr 1fr 1.1fr .9fr;
+  gap:10px;
+  padding:15px 0 10px
+}
+small {
+  display:block;
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:.035em;
+  margin-bottom:6px
+}
+strong {
+  display:block;
+  font-size:26px;
+  font-weight:550;
+  font-variant-numeric:tabular-nums
+}
+em {
+  font-size:12px;
+  font-style:normal;
+  font-weight:400;
+  color:var(--muted)
+}
+#zone {
+  color:var(--mint)
+}
+input {
+  width:100%;
+  accent-color:var(--mint);
+  margin:8px 0
+}
+.transport {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px
+}
+button {
+  font:inherit;
+  font-size:12px;
+  padding:8px 10px;
+  color:var(--ink);
+  border:1px solid var(--line);
+  background:#18333b;
+  border-radius:5px;
+  cursor:pointer
+}
+button:hover {
+  background:#294850
+}
+button:focus-visible,input:focus-visible {
+  outline:3px solid #ffe1a9;
+  outline-offset:3px
+}
+#togglePlay {
+  background:var(--mint);
+  color:#10242b;
+  font-weight:600
+}
+h2 {
+  font-size:11px;
+  letter-spacing:.06em;
+  color:var(--muted);
+  font-weight:600;
+  margin-bottom:8px
+}
+canvas {
+  width:100%;
+  height:auto;
+  display:block
+}
+.comparison {
+  font-size:13px;
+  color:var(--ink);
+  margin:8px 0
+}
+.zone-key {
+  display:flex;
+  gap:5px
+}
+.zone-key span {
+  font-size:10px;
+  flex:1;
+  text-align:center;
+  padding:4px;
+  border-bottom:3px solid #8198ad
+}
+.zone-key span:nth-child(2) {
+  border-color:#98dfca
+}
+.zone-key span:nth-child(3) {
+  border-color:#efd28a
+}
+.zone-key span:nth-child(4) {
+  border-color:#f5ac75
+}
+.zone-key span:nth-child(5) {
+  border-color:#dca0ae
+}
+.context-title {
+  margin-top:17px
+}
+.context-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px
+}
+.context-grid>div {
+  border-top:1px solid var(--line);
+  padding-top:9px
+}
+.context-grid strong {
+  font-size:23px
+}
+.oxygen {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  border-top:1px solid var(--line);
+  margin-top:15px;
+  padding-top:10px
+}
+.oxygen strong {
+  font-size:17px
+}
+.oxygen p {
+  font-size:11px;
+  line-height:1.4;
+  max-width:185px;
+  color:var(--muted)
+}
+.events {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:16px 0 10px
+}
+.events button {
+  border-radius:20px
+}
+.caption {
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.45
+}
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip-path:inset(50%)
+}
+@media(max-width:700px) {
+  .grid {
+    grid-template-columns:1fr
+  }
+  header {
+    display:block
+  }
+  .profile {
+    text-align:left;
+    max-width:none;
+    margin-top:8px
+  }
+  .wrap {
+    padding:14px
+  }
+  .numbers strong {
+    font-size:23px
+  }
+  .grid {
+    gap:24px
+  }
+}
+/* Keep contextual signals visible beside the clip during a projected demo. */
+video {
+  max-height:240px
+}
+canvas {
+  height:145px
+}
+.optional-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px
+}
+.optional-grid .oxygen {
+  display:block;
+  min-width:0;
+  margin-top:10px;
+  padding-top:9px
+}
+.optional-grid .oxygen strong {
+  font-size:18px
+}
+.optional-grid .oxygen p {
+  max-width:none;
+  font-size:10px;
+  margin-top:5px
+}
+.context-title {
+  margin-top:12px
+}
+.context-grid strong {
+  font-size:22px
+}
+.profile {
+  font-size:10px
+}
+.numbers strong {
+  font-size:25px
+}
+@media(max-width:700px) {
+  canvas {
+    height:auto
+  }
+  .optional-grid {
+    grid-template-columns:1fr 1fr
+  }
+  video {
+    max-height:none
+  }
+}

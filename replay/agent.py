@@ -11,10 +11,26 @@ from langgraph.graph import END, START, StateGraph
 
 from replay.llm import Provider, cloud_synthesis
 from replay.observability import log_outcome, trace_model, trace_step
-from replay.retrieval import EvidenceIndex, documents
+from replay.performance import performance_document
+from replay.retrieval import EvidenceIndex, documents, event_document
 from replay.safety import input_policy, validate_answer
 
 LABELS = ["stops", "signals", "summary", "knowledge"]
+
+
+def heart_rate_question(question: str) -> bool:
+    """Keep heart-rate investigations focused on their own measured events."""
+    return any(
+        word in question.lower() for word in ["heart rate", "heart-rate", "zone", "bpm", "effort"]
+    )
+
+
+def performance_question(question: str) -> bool:
+    """Use the structured comparison for contextual metrics and proposed experiments."""
+    return any(
+        word in question.lower()
+        for word in ["performance", "improve", "core temp", "oxygen", "spo2", "cadence", "power"]
+    )
 
 
 def route_question(question: str) -> str:
@@ -27,6 +43,8 @@ def route_question(question: str) -> str:
         return "knowledge"
     if any(w in q for w in ["stop", "pause", "stationary", "waiting", "lost time"]):
         return "stops"
+    if heart_rate_question(q):
+        return "signals"
     if any(
         w in q
         for w in ["gap", "missing", "disagree", "conflict", "sync", "offset", "frozen", "gps"]
@@ -98,41 +116,54 @@ def build_agent(index: EvidenceIndex, router: Callable[[str], str] | None = None
         route = s["route"]
         kinds = {
             "stops": {"stop_candidate"},
-            "signals": {"sensor_conflict", "missing_speed", "repeated_frame"},
+            "signals": {
+                "sensor_conflict",
+                "missing_speed",
+                "repeated_frame",
+                "heart_rate_zone_change",
+            },
         }
+        if route == "signals" and heart_rate_question(s["question"]):
+            kinds["signals"] = {"heart_rate_zone_change"}
         events = [
             e
             for e in report["events"]
             if e["kind"] in kinds.get(route, {e["kind"] for e in report["events"]})
         ]
         evidence = list(s["evidence"])
+        if performance_question(s["question"]) and report.get("performance_review"):
+            evidence = [d for d in evidence if d["id"] != "P001"]
+            evidence.insert(0, performance_document(report["performance_review"]))
         ids = {d["id"] for d in evidence}
         for e in events:
             if e["id"] not in ids:
-                evidence.append(
-                    {
-                        "id": e["id"],
-                        "text": f"{e['kind']} from {e['start_s']} to {e['end_s']} seconds; duration {e['duration_s']} seconds.",
-                        "source": f"video:{e['start_s']}-{e['end_s']}",
-                    }
-                )
+                evidence.append(event_document(e))
         return {"evidence": evidence, "steps": s["steps"] + ["tool:" + route]}
 
     def answer(s):
         events = {e["id"]: e for e in s["report"]["events"]}
         refs = [d for d in s["evidence"] if d["id"] in events]
-        if s["route"] == "knowledge":
+        if performance_question(s["question"]) and s["route"] != "knowledge":
+            refs = [d for d in s["evidence"] if d["id"] == "P001"]
+        elif s["route"] == "knowledge":
             refs = [d for d in s["evidence"] if d["id"].startswith("K")]
         elif s["route"] == "stops":
             refs = [d for d in refs if events[d["id"]]["kind"] == "stop_candidate"]
         elif s["route"] == "signals":
             refs = [d for d in refs if events[d["id"]]["kind"] != "stop_candidate"]
+            if heart_rate_question(s["question"]):
+                refs = [d for d in refs if events[d["id"]]["kind"] == "heart_rate_zone_change"]
         refs = refs[:8]
         if refs:
             text = "\n\n".join(f"{d['text']} [{d['id']}]" for d in refs)
             status = "needs_review" if s["route"] != "knowledge" else "answered"
         else:
             text = "No matching evidence was found in this recording and knowledge corpus."
+            if s["route"] == "signals" and heart_rate_question(s["question"]):
+                text += (
+                    " Heart-rate zone review needs valid readings and an explicit zone profile. "
+                    "Only changes sustained for at least five seconds are highlighted."
+                )
             status = "insufficient_evidence"
         result = {
             "status": status,
@@ -142,6 +173,7 @@ def build_agent(index: EvidenceIndex, router: Callable[[str], str] | None = None
             "caveats": [
                 "Camera motion does not establish running speed or a physiological cause.",
                 "Alignment and detected events require human review.",
+                "Heart-rate zones depend on personal thresholds and do not explain the cause of a change.",
             ],
         }
         if s.get("cloud") and refs:

@@ -112,16 +112,16 @@ def introduction() -> None:
     # Evidence is a candidate for review, not a causal or medical conclusion.
     d.rect(1030, 262, 340, 190, "#e6f1ea", 12)
     for y, title, detail, color in [
-        (279, "Stop candidate", "Open the timestamped frame", TEAL),
-        (359, "Sensor disagreement", "Compare video and watch", AMBER),
+        (279, "Heart-rate zone change", "Open the timestamped frame", TEAL),
+        (359, "Proposed experiment", "Review before testing", AMBER),
     ]:
         d.rect(1047, y, 305, 68, "#ffffff", 8)
         d.circle(1065, y + 22, 6, color)
         d.text(1081, y + 28, title, 20, color, 700)
         d.text(1060, y + 53, detail, 17, MUTED)
-    d.text(1030, 490, "Watch. Inspect. Decide.", 24, INK, 700)
+    d.text(1030, 490, "Compare. Review. Test.", 24, INK, 700)
     d.text(1030, 524, "Review events and cited answers.", 20, MUTED)
-    d.text(1030, 553, "Confirm or reject after replay.", 21, MUTED)
+    d.text(1030, 553, "Save a reviewed observation.", 21, MUTED)
     d.text(40, 624, "Video + watch data → moments worth reviewing", 29, TEAL, 700)
     d.text(
         40,
@@ -154,17 +154,17 @@ def architecture() -> None:
     d.label(62, 232, 1, "Exported files")
     d.text(64, 280, "Camera video  ·  MP4 / MOV", 22)
     d.text(64, 318, "Watch  ·  CSV / GPX / XML", 22, BLUE)
-    d.text(64, 354, "Apple Health XML supported", 20, MUTED)
+    d.text(64, 354, "Garmin · COROS · Suunto · Apple", 20, MUTED)
     d.text(64, 384, "File import; no device API", 20, MUTED)
     d.label(542, 232, 2, "Local measurements")
     d.text(544, 280, "OpenCV: flow, frames, quality", 21)
     d.text(544, 318, "Parsers: time, units, samples", 21, BLUE)
-    d.text(544, 354, "Speed · heart rate · route", 20, MUTED)
+    d.text(544, 354, "HR · zones · pace · optional sensors", 20, MUTED)
     d.text(544, 384, "Keep missing values explicit", 20, MUTED)
     d.label(1022, 232, 3, "Align + detect")
     d.text(1024, 280, "Manual offset + time tolerance", 21)
-    d.text(1024, 318, "Stops · repeats · disagreements", 20, BLUE)
-    d.text(1024, 354, "Candidate events + coverage", 20, MUTED)
+    d.text(1024, 318, "Zone changes + quality checks", 20, BLUE)
+    d.text(1024, 354, "Measured performance comparison", 20, MUTED)
     d.text(1024, 384, "Evidence frames + timestamps", 20, MUTED)
     d.path("M458 300 H500", "#6a8790", arrow=True)
     d.path("M938 300 H980", "#6a8790", arrow=True)
@@ -211,8 +211,8 @@ def architecture() -> None:
     d.path("M720 840 V901", "#6a8790", arrow=True)
     d.text(64, 951, "Replay + human review", 25, TEAL, 700)
     d.text(64, 992, "Streamlit + browser video clock", 21)
-    d.text(64, 1027, "Charts, route and cited answers", 21)
-    d.text(64, 1062, "Confirm or reject event candidates", 20)
+    d.text(64, 1027, "Readings and cited observations", 21)
+    d.text(64, 1062, "Review an experiment; save a note", 20)
     d.text(64, 1103, "Review does not certify a cause.", 19, MUTED)
     d.text(544, 951, "Local session state", 25, BLUE, 700)
     d.text(544, 992, "Files, index and review JSON", 21)

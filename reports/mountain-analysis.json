@@ -1,24 +1,229 @@
 {
   "events": [
     {
-      "start_s": 20.0,
-      "end_s": 27.0,
-      "duration_s": 7.0,
-      "kind": "sensor_conflict",
-      "id": "E001"
+      "kind": "heart_rate_zone_change",
+      "start_s": 15.0,
+      "end_s": 40.0,
+      "duration_s": 25.0,
+      "from_zone": 2,
+      "to_zone": 3,
+      "start_hr_bpm": 140.0,
+      "min_hr_bpm": 140.0,
+      "peak_hr_bpm": 159.0,
+      "profile": {
+        "lower_bounds_bpm": [
+          120,
+          140,
+          160,
+          180
+        ],
+        "source": "Illustrative demo zones, not personal zones"
+      },
+      "id": "E001",
+      "context_ranges": {
+        "pace_min_km": {
+          "min": 9.01,
+          "max": 10.35
+        },
+        "cadence_spm": {
+          "min": 152.0,
+          "max": 157.0
+        },
+        "altitude_m": {
+          "min": 1602.5,
+          "max": 1614.4
+        },
+        "running_power_w": {
+          "min": 218.0,
+          "max": 263.0
+        },
+        "core_temperature_c": {
+          "min": 37.83,
+          "max": 37.87
+        }
+      },
+      "core_temperature_sources": [
+        "Simulated external core-temperature sensor"
+      ]
     },
     {
-      "start_s": 44.5,
-      "end_s": 49.0,
-      "duration_s": 4.5,
-      "kind": "missing_speed",
-      "id": "E002"
+      "kind": "heart_rate_zone_change",
+      "start_s": 40.0,
+      "end_s": 58.0,
+      "duration_s": 18.0,
+      "from_zone": 3,
+      "to_zone": 4,
+      "start_hr_bpm": 160.0,
+      "min_hr_bpm": 160.0,
+      "peak_hr_bpm": 168.0,
+      "profile": {
+        "lower_bounds_bpm": [
+          120,
+          140,
+          160,
+          180
+        ],
+        "source": "Illustrative demo zones, not personal zones"
+      },
+      "id": "E002",
+      "context_ranges": {
+        "pace_min_km": {
+          "min": 9.96,
+          "max": 10.75
+        },
+        "cadence_spm": {
+          "min": 150.0,
+          "max": 153.0
+        },
+        "altitude_m": {
+          "min": 1615.0,
+          "max": 1622.5
+        },
+        "running_power_w": {
+          "min": 242.0,
+          "max": 275.0
+        },
+        "core_temperature_c": {
+          "min": 37.87,
+          "max": 37.9
+        }
+      },
+      "core_temperature_sources": [
+        "Simulated external core-temperature sensor"
+      ]
     }
   ],
   "stop_candidate_s": 0,
-  "speed_coverage": 0.925,
+  "speed_coverage": 1.0,
   "heart_rate_coverage": 1.0,
-  "conflict_samples": 14,
+  "conflict_samples": 0,
+  "heart_rate_zones": {
+    "lower_bounds_bpm": [
+      120,
+      140,
+      160,
+      180
+    ],
+    "source": "Illustrative demo zones, not personal zones"
+  },
   "duration_s": 59.5,
-  "interpretation": "Candidate stops and source disagreements require review. Camera motion is not running speed."
+  "interpretation": "Events identify moments to review. Heart-rate zones use the selected thresholds; a zone change does not establish terrain difficulty or its cause. Camera motion is not running speed.",
+  "performance_review": {
+    "id": "P001",
+    "data_status": "Simulated example",
+    "status": "needs_review",
+    "comparison": [
+      {
+        "field": "heart_rate_bpm",
+        "metric": "Heart rate",
+        "unit": "bpm",
+        "baseline": 134.0,
+        "peak": 168.0,
+        "change": 34.0,
+        "baseline_display": "134",
+        "peak_display": "168"
+      },
+      {
+        "field": "heart_rate_zone",
+        "metric": "Training zone",
+        "unit": "zone",
+        "baseline": 2.0,
+        "peak": 4.0,
+        "change": 2.0,
+        "baseline_display": "Zone 2",
+        "peak_display": "Zone 4"
+      },
+      {
+        "field": "pace_min_km",
+        "metric": "Pace",
+        "unit": "min/km",
+        "baseline": 8.772,
+        "peak": 10.753,
+        "change": 1.981,
+        "baseline_display": "8:46",
+        "peak_display": "10:45"
+      },
+      {
+        "field": "cadence_spm",
+        "metric": "Cadence",
+        "unit": "steps/min",
+        "baseline": 158.0,
+        "peak": 150.0,
+        "change": -8.0,
+        "baseline_display": "158",
+        "peak_display": "150"
+      },
+      {
+        "field": "altitude_m",
+        "metric": "Elevation",
+        "unit": "m",
+        "baseline": 1600.0,
+        "peak": 1620.0,
+        "change": 20.0,
+        "baseline_display": "1600",
+        "peak_display": "1620"
+      },
+      {
+        "field": "running_power_w",
+        "metric": "Running power",
+        "unit": "W",
+        "baseline": 205.0,
+        "peak": 275.0,
+        "change": 70.0,
+        "baseline_display": "205",
+        "peak_display": "275"
+      },
+      {
+        "field": "core_temperature_c",
+        "metric": "Sensor-reported core temperature",
+        "unit": "\u00b0C",
+        "baseline": 37.8,
+        "peak": 37.88,
+        "change": 0.08,
+        "baseline_display": "37.80",
+        "peak_display": "37.88"
+      },
+      {
+        "field": "spo2_percent",
+        "metric": "Blood oxygen \u00b7 spot sample",
+        "unit": "%",
+        "baseline": 98.0,
+        "peak": null,
+        "change": null,
+        "baseline_display": "98",
+        "peak_display": "No reading"
+      }
+    ],
+    "observations": [
+      "Heart rate rose by 34 bpm: 134 at 0:00 \u2192 168 at 0:48."
+    ],
+    "interpretation": "Heart rate rose while recorded elevation increased, recorded running power increased, pace became slower. This is a pattern to investigate, not evidence that any one signal caused the change.",
+    "experiments": [
+      {
+        "title": "Test steadier effort on a comparable segment",
+        "action": "Use your own training plan or coach's effort target. Compare a deliberately steadier attempt with this segment; do not chase a suggested heart-rate or temperature number.",
+        "measure": "Compare segment time, time in your planned zone, perceived effort, and the video. Keep route, sensor setup and conditions as comparable as possible.",
+        "success": "A similar segment time with fewer departures from the intended effort is a candidate improvement to verify over repeated sessions."
+      },
+      {
+        "title": "Review one visible technique change",
+        "action": "Inspect the higher-effort moment for a concrete, visible adjustment to discuss with a coach, such as line choice. Record your observation before deciding what to change.",
+        "measure": "Review the same section on another attempt alongside cadence, pace, power when recorded, and perceived effort.",
+        "success": "Confirm a useful change across matched recordings; a single replay does not establish better technique."
+      }
+    ],
+    "limits": [
+      "A short clip cannot measure endurance, establish a cause, or prove an improvement.",
+      "Video context requires human review; the app does not recognize terrain or technique.",
+      "Core temperature is sensor-reported and separate from skin/ambient temperature. This clip does not establish heat strain or a temperature-performance relationship.",
+      "No blood-oxygen reading exists at the HR peak. An earlier spot sample cannot explain this moment."
+    ],
+    "event_ids": [
+      "E001",
+      "E002"
+    ],
+    "baseline_s": 0.0,
+    "peak_s": 48.0,
+    "core_temperature_source": "Simulated external core-temperature sensor"
+  }
 }

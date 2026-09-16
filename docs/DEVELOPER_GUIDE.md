@@ -15,6 +15,8 @@ Format and lint with Ruff. Tests should verify meaningful behavior, including sp
 | `replay/ingest.py` | Bounded CSV, GPX and Health XML parsing, units and timestamps |
 | `replay/vision.py` | OpenCV decoding, optical flow, quality measurements and evidence frames |
 | `replay/analysis.py` | Alignment, explicit missing values, interval detection and summary |
+| `replay/heart_rate.py` | Explicit zone profiles and sustained transitions without gap bridging |
+| `replay/performance.py` | Deterministic comparisons, uncertainty and reviewable experiment templates |
 | `replay/retrieval.py` | Versioned corpus, lexical/dense retrieval and persisted vectors |
 | `replay/agent.py` | LangGraph routing, tool fallbacks, synthesis, reference verification and node timings |
 | `replay/llm.py` | Explicit Gemini/Nebius provider boundary, bounded text payloads, timeouts and token usage |
@@ -22,7 +24,7 @@ Format and lint with Ruff. Tests should verify meaningful behavior, including sp
 | `replay/safety.py` | Local trust boundaries, redaction and output schema |
 | `replay/framework_guards.py` | Executable NeMo input rail and Guardrails AI schema checks |
 | `replay/router.py` | Optional locally trained classifier inference |
-| `replay/player.py` | Python-rendered sandboxed player; small JavaScript layer follows the video clock |
+| `replay/player.py` | Python-rendered player with readable HTML/CSS/JS in `replay/ui/`; the video clock drives all readings |
 | `app.py` | Streamlit session orchestration and review controls |
 | `scripts/` | Reproducible fixtures, evaluation and integration checks |
 | `training/` | Reproducible LoRA experiment and separate Qwen course recipe |
@@ -53,3 +55,5 @@ PYTHONPATH=. python scripts/check_integrations.py
 `check_integrations.py` may send only synthetic aggregate evidence to the configured model. Add `--trace` only when you want to test synthetic LangSmith tracing; success requires server readback. The verified initial attempt hit the account's monthly trace quota. Local node timing evidence is saved regardless of cloud tracing.
 
 See [Nebius integration](NEBIUS.md) for provider configuration and fake-transport tests. No live provider is called by the unit tests.
+
+Performance evidence has ID `P001`; event IDs retain `E001` etc. Both are citation-checked. Metric comparisons are deterministic and remain authoritative when a cloud draft is enabled. The agent keeps the four existing route labels so the separate router experiment remains interpretable. Review files are scoped to the input/configuration fingerprint; changes do not attach old reviews to new event IDs.

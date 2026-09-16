@@ -40,6 +40,7 @@
   "speed_coverage": 0.9722222222222222,
   "heart_rate_coverage": 1.0,
   "conflict_samples": 11,
+  "heart_rate_zones": null,
   "duration_s": 89.5,
-  "interpretation": "Candidate stops and source disagreements require review. Camera motion is not running speed."
+  "interpretation": "Events identify moments to review. Heart-rate zones use the selected thresholds; a zone change does not establish terrain difficulty or its cause. Camera motion is not running speed."
 }

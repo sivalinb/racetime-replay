@@ -12,7 +12,7 @@ flowchart LR
     W[CSV GPX Health XML] --> P[Validated workout samples]
     CV --> A[Offset and nearest-sample alignment]
     P --> A
-    A --> E[Candidate events and coverage]
+    A --> E[Zone changes and measured comparisons]
     E --> UI[Synchronized replay and human review]
     E --> R[Event and knowledge retrieval]
     R --> G[Bounded LangGraph investigator]
@@ -22,7 +22,7 @@ flowchart LR
     E --> Q[Local evaluation and node traces]
 ```
 
-Numerical analysis runs on the Python application's host. Streamlit serves a browser player whose small JavaScript component synchronizes video playback, charts and the route display. Candidate events are available for direct review without calling the investigator. No raw media is sent by the optional synthesis path. Scene recognition and training optimization belong to the future roadmap, not this architecture's implemented measurement path.
+Numerical analysis runs on the Python application's host. Streamlit serves a browser player whose small JavaScript component synchronizes video playback, heart-rate chart and available contextual readings. Candidate events are available for direct review without calling the investigator. No raw media is sent by the optional synthesis path. Python also builds a descriptive start-to-HR-peak comparison and reviewable experiment templates. These are not a causal model or proven training optimization. Scene recognition and automatic multi-run evaluation remain future work.
 
 
 ## State and optional services

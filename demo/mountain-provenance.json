@@ -4,15 +4,18 @@
   "source": "https://www.pexels.com/video/point-of-view-of-a-person-hiking-a-rocky-hill-6798218/",
   "license": "https://www.pexels.com/license/",
   "processing": "Downscaled to 1280x720 at 24 fps, H.264; no speed change, loops, inserted freezes, or scene generation.",
-  "workout": "All speed, heart rate, altitude, coordinates, and dates are simulated, not inferred from footage or exported from a real watch.",
+  "workout": "All speed, heart rate, cadence, power, oxygen, core temperature, altitude, coordinates, and dates are simulated, not inferred from footage or exported from a real watch.",
   "offset_s": 0,
-  "mock_zero_speed_s": [
-    20,
-    27
+  "scenario": "Heart rate rises from 134 to 168 bpm, then falls to 158 bpm; positive speed throughout.",
+  "zone_lower_bounds_bpm": [
+    120,
+    140,
+    160,
+    180
   ],
-  "mock_missing_speed_s": [
-    43,
-    51
-  ],
+  "zones": "Illustrative thresholds, not the user's or the filmed person's training zones.",
+  "oxygen": "One simulated 98% spot reading at 0 seconds; no oxygen reading during the higher-zone interval.",
+  "core_temperature": "Simulated external sensor reports 37.80\u201337.90 \u00b0C. CSV only. Not skin/ambient temperature or a heat-strain finding.",
+  "devices": "Brand-neutral canonical CSV; no direct Garmin, COROS, Suunto or Apple Watch account integration. XML is an optional Apple Health-shaped subset.",
   "limitation": "Same demo timeline does not imply real correspondence between this hiker and simulated health signals. Not field-validation data."
 }

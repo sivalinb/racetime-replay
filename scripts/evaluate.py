@@ -9,6 +9,7 @@ import numpy as np
 from replay.agent import investigate
 from replay.analysis import align, summarize
 from replay.ingest import load_csv
+from replay.retrieval import documents
 from replay.vision import analyze_video
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,6 +19,7 @@ def main():
     visual, _meta = analyze_video(ROOT / "demo/replay-demo.mp4")
     aligned = align(visual, load_csv(ROOT / "demo/workout.csv"))
     report = summarize(aligned)
+    allowed_ids = {document["id"] for document in documents(report)}
     cases = []
     questions = {
         "stops": [
@@ -79,9 +81,7 @@ def main():
                     "expected_route": label,
                     "predicted_route": result["route"],
                     "pass": result["route"] == label,
-                    "evidence_valid": set(result["evidence_ids"]).issubset(
-                        {e["id"] for e in report["events"]} | {f"K{i:02d}" for i in range(1, 9)}
-                    ),
+                    "evidence_valid": set(result["evidence_ids"]).issubset(allowed_ids),
                     "latency_ms": result["latency_ms"],
                     "steps": result["steps"],
                     "spans": result["spans"],

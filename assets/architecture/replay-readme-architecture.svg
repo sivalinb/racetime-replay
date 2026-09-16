@@ -13,21 +13,21 @@
 <text x="112" y="232" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="700" fill="#203646">Exported files</text>
 <text x="64" y="280" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#203646">Camera video  ·  MP4 / MOV</text>
 <text x="64" y="318" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#396f9a">Watch  ·  CSV / GPX / XML</text>
-<text x="64" y="354" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Apple Health XML supported</text>
+<text x="64" y="354" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Garmin · COROS · Suunto · Apple</text>
 <text x="64" y="384" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">File import; no device API</text>
 <circle cx="560" cy="224" r="18" fill="#187b70" stroke="none" stroke-width="2"/>
 <text x="553" y="232" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" fill="#ffffff">2</text>
 <text x="592" y="232" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="700" fill="#203646">Local measurements</text>
 <text x="544" y="280" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">OpenCV: flow, frames, quality</text>
 <text x="544" y="318" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#396f9a">Parsers: time, units, samples</text>
-<text x="544" y="354" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Speed · heart rate · route</text>
+<text x="544" y="354" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">HR · zones · pace · optional sensors</text>
 <text x="544" y="384" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Keep missing values explicit</text>
 <circle cx="1040" cy="224" r="18" fill="#187b70" stroke="none" stroke-width="2"/>
 <text x="1033" y="232" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" fill="#ffffff">3</text>
 <text x="1072" y="232" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="700" fill="#203646">Align + detect</text>
 <text x="1024" y="280" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Manual offset + time tolerance</text>
-<text x="1024" y="318" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#396f9a">Stops · repeats · disagreements</text>
-<text x="1024" y="354" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Candidate events + coverage</text>
+<text x="1024" y="318" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#396f9a">Zone changes + quality checks</text>
+<text x="1024" y="354" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Measured performance comparison</text>
 <text x="1024" y="384" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#526976">Evidence frames + timestamps</text>
 <path d="M458 300 H500" stroke="#6a8790" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <path d="M938 300 H980" stroke="#6a8790" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
@@ -70,8 +70,8 @@
 <path d="M720 840 V901" stroke="#6a8790" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <text x="64" y="951" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="700" fill="#187b70">Replay + human review</text>
 <text x="64" y="992" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Streamlit + browser video clock</text>
-<text x="64" y="1027" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Charts, route and cited answers</text>
-<text x="64" y="1062" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#203646">Confirm or reject event candidates</text>
+<text x="64" y="1027" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Readings and cited observations</text>
+<text x="64" y="1062" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#203646">Review an experiment; save a note</text>
 <text x="64" y="1103" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" fill="#526976">Review does not certify a cause.</text>
 <text x="544" y="951" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="700" fill="#396f9a">Local session state</text>
 <text x="544" y="992" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" fill="#203646">Files, index and review JSON</text>
