@@ -27,7 +27,7 @@ Numerical analysis runs on the Python application's host. Streamlit serves a bro
 
 ## State and optional services
 
-Session files, indexes and human review notes stay on the application host. LangGraph checkpoints are in memory and do not survive a process restart. The diagram's review step refers to confirming or rejecting event candidates in the interface.
+Session files, indexes, human review notes and explicitly saved next-run plans stay on the application host. LangGraph checkpoints are in memory and do not survive a process restart. The review step includes confirming or rejecting event candidates, inspecting a cited measurement comparison, and explicitly confirming the visible observation before saving an experiment. The user can download the plan; the system does not automatically compare the next session or establish a performance improvement.
 
 The default investigator uses local retrieval and evidence tools. MiniLM hybrid retrieval, NeMo's local input action and Guardrails AI schema validation are optional. Gemini and Nebius Token Factory provide opt-in text drafts; they do not inspect video in this version. Braintrust accepts allowlisted metadata only from explicitly enabled synthetic sessions. The separate LangSmith integration check and experimental LoRA router are described in the [weekly mapping](WEEKLY_MAPPING.md); neither is required by the default replay workflow.
 

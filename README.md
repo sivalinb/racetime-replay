@@ -14,6 +14,17 @@ Trail runners and endurance athletes who want to revisit moments in their own re
 
 GoPro, Insta360, iPhone and camera-equipped Meta glasses offer several ways to capture first-person video. Sports watches such as Garmin, COROS, Suunto and Apple Watch record a different view of the same session. RaceTime accepts exported files and brings those records together. It does not claim every device supplies continuous video or identical metadata.
 
+## The decision it helps you make
+
+A rise in heart rate or a change in training zone can identify a moment worth reviewing. Video can show what was visible at that moment, such as uneven footing. Neither source alone establishes the cause of the change. The current workflow makes the comparison inspectable:
+
+1. Align a recording with compatible workout samples and your own zone boundaries.
+2. Compare heart rate, zone and pace with the matching video; inspect other recorded signals when available.
+3. Ask for a measurement comparison with a reference back to the evidence.
+4. Review the visible context, confirm the observation, and save an experiment to test on a comparable session.
+
+The outcome is a reviewed next-run plan. Automated cross-session comparison and a measured performance gain remain future work. See the [performance review workflow](docs/PERFORMANCE_REVIEW.md).
+
 ## Run locally
 
 ```bash
@@ -55,6 +66,8 @@ See the [performance review workflow](docs/PERFORMANCE_REVIEW.md) for how measur
 
 Automatic terrain recognition, rich vision-model summaries, physiological explanations, native device connections, multi-run comparison and personalized optimization are not implemented in this release. The roadmap explains how reviewed visual observations could later be combined with watch data and coach feedback.
 
+The same concept could support a physiotherapist reviewing prescribed home exercise after a stroke or accident: a suitable full-body camera view alongside validated wearable measurements, with patient consent and clinician review. This is a proposed extension, not an implemented or clinically validated service. Workplace training and field inspections are other possible applications. See [future applications and their requirements](docs/ROADMAP.md#beyond-running).
+
 ## Verify the build
 
 ```bash
@@ -82,6 +95,8 @@ PYTHONPATH=. python scripts/check_integrations.py
 ```
 
 The semantic model downloads from Hugging Face and runs locally. Gemini and Nebius are opt-in. Nebius needs `NEBIUS_API_KEY` and a current `NEBIUS_MODEL`. See [Nebius configuration and verified checks](docs/NEBIUS.md) and [Braintrust instrumentation and verification](docs/OBSERVABILITY.md). Integration success establishes connectivity and trace delivery; answer quality requires separate evaluation. Automatic tracing of uploaded media and health data is disabled. Course-specific LangSmith proof remains outstanding; the [weekly mapping](docs/WEEKLY_MAPPING.md) records the current status.
+
+Current development evidence comprises 44 passing Python tests, [50 authored synthetic evaluation cases](reports/evaluation.json), and [five selected framework guardrail checks](reports/guardrails-evaluation.json). An [archived Braintrust integration report](reports/braintrust-integration.json) verifies eight spans and 163 tokens from a separate synthetic Nebius run. These checks establish the reported development behavior, not field accuracy, clinical safety or a performance benefit.
 
 ## Training
 
